@@ -314,7 +314,26 @@ footer a:hover{color:var(--gold)}
   .blk{grid-template-columns:36px 1fr}
   .blk .hash{grid-column:2;text-align:left;min-width:0}
 }
-@media(max-width:560px){ .uses{grid-template-columns:1fr} .steps{grid-template-columns:1fr} }
+@media(max-width:640px){
+  .stats{grid-template-columns:1fr 1fr;gap:34px 16px}
+  .arch-visual text{display:none}
+  .langsw button{padding:12px 9px;font-size:.64rem}
+  .pinner{gap:18px}
+  .plogos{gap:26px}
+}
+@media(max-width:560px){
+  .uses{grid-template-columns:1fr} .steps{grid-template-columns:1fr}
+  #entry .emk{width:88px;height:88px}
+  #entry .ew{font-size:1rem}
+  .rcard{flex:0 0 86vw}
+  .rcard[style]{flex-basis:82vw !important}
+  .final .btn,.hero-cta .btn{width:100%;justify-content:center}
+  .hero-cta{gap:10px}
+  .hero .lead{font-size:1.02rem}
+  .pframe{margin-top:14px}
+  .models .model{padding:26px 22px}
+  .rbtns{justify-content:center}
+}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
@@ -1065,6 +1084,11 @@ function initHero3D(){
         qx((e.clientX-r.left-r.width/2)*.14); qy((e.clientY-r.top-r.height/2)*.26); });
       b.addEventListener('pointerleave',()=>{qx(0);qy(0);});
     });
+  }
+  /* touch devices: the product frame arrives dimensionally via scroll (no hover exists) */
+  if(tilt && !matchMedia('(pointer:fine)').matches){
+    gsap.fromTo(tilt,{rotationX:7,y:26},{rotationX:0,y:0,ease:'none',
+      scrollTrigger:{trigger:tilt,start:'top 95%',end:'top 40%',scrub:true}});
   }
   /* premium entrance: the monogram assembles → the wordmark breathes → the mark
      flies to its seat in the nav → the page flows open */
