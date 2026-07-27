@@ -971,7 +971,7 @@ document.getElementById('replay').addEventListener('click', verifyChain);
   if(!lg){ lg=(navigator.language||'pt').toLowerCase().startsWith('en')?'en':'pt'; }
   if(lg!=='pt') setLang(lg); })();
 
-/* ============ 3D — the knowledge architecture, floating (infinite loop) ============ */
+/* ============ 3D — the knowledge architecture, POWERED (particle-built, device-adaptive) ============ */
 function initHero3D(){
   const cv=document.getElementById('c3d');
   if(!cv || !window.THREE || RM){ if(cv) cv.remove(); return; }
@@ -979,45 +979,115 @@ function initHero3D(){
   try{ renderer=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true});
        if(!renderer.getContext()) throw 0; }
   catch(e){ cv.remove(); return; }
-  renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.8));
+  const mobile=matchMedia('(max-width:980px)').matches;
+  const cores=navigator.hardwareConcurrency||4;
+  const PERF=mobile?(cores>=6?1:.6):(cores>=8?1.4:1);   // device-adaptive density
+  renderer.setPixelRatio(Math.min(devicePixelRatio||1, mobile?1.6:1.8));
   const scene=new THREE.Scene();
   const cam=new THREE.PerspectiveCamera(40,1,.1,100); cam.position.set(0,0,11);
   const BLUE=new THREE.Color('#4E6FAE'), DEEPC=new THREE.Color('#173553'), GOLD=new THREE.Color('#C5A05A');
-  const mobile=matchMedia('(max-width:980px)').matches;
+
+  // soft glow sprite (canvas radial gradient — bloom without postprocessing)
+  function glowTex(hex){
+    const c=document.createElement('canvas'); c.width=c.height=64;
+    const g=c.getContext('2d'), gr=g.createRadialGradient(32,32,0,32,32,32);
+    gr.addColorStop(0,hex+'ff'); gr.addColorStop(.35,hex+'99'); gr.addColorStop(1,hex+'00');
+    g.fillStyle=gr; g.fillRect(0,0,64,64);
+    const t=new THREE.CanvasTexture(c); return t;
+  }
+  const goldTex=glowTex('#C5A05A'), blueTex=glowTex('#4E6FAE');
+
   const group=new THREE.Group(); scene.add(group);
+
+  // interlocking frames: crisp lines + particle corners that breathe
   const frame=(w,h,color,op)=>{
     const pts=[new THREE.Vector3(-w/2,-h/2,0),new THREE.Vector3(w/2,-h/2,0),
                new THREE.Vector3(w/2,h/2,0),new THREE.Vector3(-w/2,h/2,0),new THREE.Vector3(-w/2,-h/2,0)];
     return new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),
       new THREE.LineBasicMaterial({color,transparent:true,opacity:op}));
   };
-  const f1=frame(3.4,3.4,DEEPC,.5); f1.position.set(-.9,.7,0);
-  const f2=frame(3.4,3.4,BLUE,.55); f2.position.set(.9,-.7,.6);
+  const f1=frame(3.4,3.4,DEEPC,.55); f1.position.set(-.9,.7,0);
+  const f2=frame(3.4,3.4,BLUE,.6);  f2.position.set(.9,-.7,.6);
   group.add(f1,f2);
-  // the gold pathway stepping through both frames
-  const path=[[-2.4,-1.6,0],[-1.2,-1.6,0],[-1.2,-.4,.3],[.4,-.4,.3],[.4,.8,.6],[2.2,.8,.6]];
-  group.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(path.map(p=>new THREE.Vector3(...p))),
-    new THREE.LineBasicMaterial({color:GOLD,transparent:true,opacity:.85})));
-  // sparse particles
-  const N=mobile?90:200, pos=new Float32Array(N*3);
-  for(let i=0;i<N;i++){ pos[i*3]=(Math.random()-.5)*16; pos[i*3+1]=(Math.random()-.5)*10; pos[i*3+2]=(Math.random()-.5)*6-1; }
-  const pg=new THREE.BufferGeometry(); pg.setAttribute('position',new THREE.BufferAttribute(pos,3));
-  scene.add(new THREE.Points(pg,new THREE.PointsMaterial({color:BLUE,size:.03,transparent:true,opacity:.35,depthWrite:false})));
+  // particle-outlined frames: points seeded along the frame edges (the structure is made of light)
+  function edgeCloud(w,h,offset,z,color,tex,n){
+    const pos=new Float32Array(n*3);
+    for(let i=0;i<n;i++){
+      const t=Math.random()*4, side=Math.floor(t), f=t-side, j=(Math.random()-.5)*.06;
+      let x,y;
+      if(side===0){ x=-w/2+f*w; y=-h/2; } else if(side===1){ x=w/2; y=-h/2+f*h; }
+      else if(side===2){ x=w/2-f*w; y=h/2; } else { x=-w/2; y=h/2-f*h; }
+      pos[i*3]=x+offset[0]+j; pos[i*3+1]=y+offset[1]+j; pos[i*3+2]=z+(Math.random()-.5)*.1;
+    }
+    const g=new THREE.BufferGeometry(); g.setAttribute('position',new THREE.BufferAttribute(pos,3));
+    return new THREE.Points(g,new THREE.PointsMaterial({color,size:.09,map:tex,transparent:true,
+      opacity:.9,depthWrite:false,blending:THREE.AdditiveBlending}));
+  }
+  group.add(edgeCloud(3.4,3.4,[-.9,.7],0,DEEPC,blueTex,Math.round(140*PERF)));
+  group.add(edgeCloud(3.4,3.4,[.9,-.7],.6,BLUE,blueTex,Math.round(140*PERF)));
+
+  // the gold pathway + KNOWLEDGE PULSES streaming along it (the powered element)
+  const P=[[-2.4,-1.6,0],[-1.2,-1.6,0],[-1.2,-.4,.3],[.4,-.4,.3],[.4,.8,.6],[2.2,.8,.6]].map(p=>new THREE.Vector3(...p));
+  group.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(P),
+    new THREE.LineBasicMaterial({color:GOLD,transparent:true,opacity:.9})));
+  const segLen=[]; let totLen=0;
+  for(let i=0;i<P.length-1;i++){ const l=P[i].distanceTo(P[i+1]); segLen.push(l); totLen+=l; }
+  function pointAt(d){ // distance → position on polyline
+    d=((d%totLen)+totLen)%totLen;
+    for(let i=0;i<segLen.length;i++){ if(d<=segLen[i]) return P[i].clone().lerp(P[i+1], d/segLen[i]); d-=segLen[i]; }
+    return P[P.length-1].clone();
+  }
+  const NP=Math.round(26*PERF);
+  const ppos=new Float32Array(NP*3), poff=Array.from({length:NP},(_,i)=>i*(totLen/NP));
+  const pgeo=new THREE.BufferGeometry(); pgeo.setAttribute('position',new THREE.BufferAttribute(ppos,3));
+  const pulses=new THREE.Points(pgeo,new THREE.PointsMaterial({color:GOLD,size:.22,map:goldTex,
+    transparent:true,opacity:.95,depthWrite:false,blending:THREE.AdditiveBlending}));
+  group.add(pulses);
+
+  // ambient depth field (two layers) + receding architectural grid
+  function field(n,spread,zBase,color,size,op){
+    const pos=new Float32Array(n*3);
+    for(let i=0;i<n;i++){ pos[i*3]=(Math.random()-.5)*spread; pos[i*3+1]=(Math.random()-.5)*spread*.6; pos[i*3+2]=zBase+(Math.random()-.5)*5; }
+    const g=new THREE.BufferGeometry(); g.setAttribute('position',new THREE.BufferAttribute(pos,3));
+    return new THREE.Points(g,new THREE.PointsMaterial({color,size,map:blueTex,transparent:true,
+      opacity:op,depthWrite:false,blending:THREE.AdditiveBlending}));
+  }
+  const field1=field(Math.round(320*PERF),18,-2,BLUE,.10,.5);
+  const field2=field(Math.round(160*PERF),22,-5,DEEPC,.14,.3);
+  scene.add(field1,field2);
+  const grid=new THREE.GridHelper(30,26,0x4E6FAE,0x4E6FAE);
+  grid.material.transparent=true; grid.material.opacity=.07;
+  grid.position.y=mobile?-2.2:-3.4; grid.position.z=-2; scene.add(grid);
+
+  // composition per device
   group.position.x = mobile? 0 : 3.4;
   group.position.y = mobile? 2.9 : .2;
   if(mobile) group.scale.setScalar(.55);
+
+  // input: pointer parallax (desktop) · scroll-driven rotation (touch)
   let tx=0,ty=0;
-  addEventListener('pointermove',e=>{ tx=(e.clientX/innerWidth-.5)*.3; ty=(e.clientY/innerHeight-.5)*.2; },{passive:true});
+  if(matchMedia('(pointer:fine)').matches){
+    addEventListener('pointermove',e=>{ tx=(e.clientX/innerWidth-.5)*.32; ty=(e.clientY/innerHeight-.5)*.22; },{passive:true});
+  } else {
+    addEventListener('scroll',()=>{ const h=innerHeight; tx=Math.min(1,scrollY/h)*.5; ty=Math.min(1,scrollY/h)*.15; },{passive:true});
+  }
   function size(){ const w=cv.clientWidth||innerWidth,h=cv.clientHeight||innerHeight;
     renderer.setSize(w,h,false); cam.aspect=w/h; cam.updateProjectionMatrix(); }
   size(); addEventListener('resize',size);
-  let vis=true; new IntersectionObserver(es=>{vis=es[0].isIntersecting}).observe(cv);
+  let vis=true;
+  new IntersectionObserver(es=>{vis=es[0].isIntersecting}).observe(cv);
+  document.addEventListener('visibilitychange',()=>{vis=!document.hidden && vis});
   const clock=new THREE.Clock();
   (function tick(){ requestAnimationFrame(tick); if(!vis) return;
     const t=clock.getElapsedTime();
-    group.rotation.y += ((tx*1.1)-group.rotation.y)*.03 + .0011;   // infinite slow orbit
+    group.rotation.y += ((tx*1.1)-group.rotation.y)*.03 + .001;
     group.rotation.x += ((ty*.7)-group.rotation.x)*.03;
     f1.position.y=.7+Math.sin(t*.5)*.12; f2.position.y=-.7+Math.sin(t*.5+1.6)*.12;
+    // pulses stream along the pathway
+    const speed=t*.9;
+    for(let i=0;i<NP;i++){ const v=pointAt(poff[i]+speed); ppos[i*3]=v.x; ppos[i*3+1]=v.y; ppos[i*3+2]=v.z; }
+    pgeo.attributes.position.needsUpdate=true;
+    field1.rotation.y=t*.006; field2.rotation.y=-t*.004;
     renderer.render(scene,cam);
   })();
 }
