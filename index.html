@@ -396,6 +396,14 @@ footer a:hover{color:var(--gold)}
   transform:translateY(120%);transition:transform .5s var(--ease)}
 .mbar.on{transform:none}
 .mbar .btn{width:100%;justify-content:space-between}
+.calwrap{max-width:940px;margin:clamp(34px,4vw,54px) auto 0;text-align:left;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+  padding:clamp(14px,1.6vw,20px);overflow:hidden}
+.calhead{font-family:var(--mono);font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--dim);padding:6px 8px 14px}
+#cal-inline{min-height:640px;border-radius:16px;overflow:hidden}
+#cal-inline iframe{border-radius:16px}
+@media(max-width:640px){#cal-inline{min-height:560px}}
 [data-rv]{will-change:transform,opacity}
 /* mobile */
 @media(max-width:980px){
@@ -486,7 +494,7 @@ footer a:hover{color:var(--gold)}
     <div class="langsw" role="group" aria-label="Language">
       <button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button>
     </div>
-    <a class="btn btn-gold navcta" href="#contacto" data-i="ncta">Sessão de estratégia</a>
+    <a class="btn btn-gold navcta" href="#contacto" data-book data-i="ncta">Sessão de estratégia</a>
     <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="mmenu">
       <span></span><span></span>
     </button>
@@ -503,12 +511,12 @@ footer a:hover{color:var(--gold)}
     <a href="#governacao" data-i="n5">Governação</a>
     <a href="#faq">FAQ</a>
   </nav>
-  <a class="btn btn-gold" href="#contacto" data-i="ncta">Sessão de estratégia</a>
+  <a class="btn btn-gold" href="#contacto" data-book data-i="ncta">Sessão de estratégia</a>
 </div>
 
 <!-- sticky mobile action bar -->
 <div class="mbar" id="mbar" aria-hidden="true">
-  <a class="btn btn-gold" href="#contacto" data-i="h_c1">Marcar sessão de estratégia</a>
+  <a class="btn btn-gold" href="#contacto" data-book data-i="h_c1">Marcar sessão de estratégia</a>
 </div>
 
 <!-- ================= HERO ================= -->
@@ -520,7 +528,7 @@ footer a:hover{color:var(--gold)}
       <p class="lead" data-cine data-i="h_lead">Desenhamos e lançamos plataformas de aprendizagem com a sua marca,
         que transformam o conhecimento da empresa em onboarding estruturado, formação e desenvolvimento contínuo.</p>
       <div class="hero-cta" data-cine>
-        <a class="btn btn-gold" href="#contacto" data-i="h_c1">Marcar sessão de estratégia</a>
+        <a class="btn btn-gold" href="#contacto" data-book data-i="h_c1">Marcar sessão de estratégia</a>
         <a class="btn btn-ghost" href="https://academy.edenrise.com/" target="_blank" rel="noopener" data-i="h_c2">Explorar a plataforma</a>
       </div>
       <div class="hero-strip" data-cine>
@@ -763,7 +771,7 @@ footer a:hover{color:var(--gold)}
         </ul>
         <div class="px" data-i="m2_x">Sob consulta</div>
         <p class="pxn" data-i="m2_n">Âmbito definido na sessão de estratégia.</p>
-        <a class="btn btn-gold" href="#contacto" data-i="m2_c">Marcar sessão</a>
+        <a class="btn btn-gold" href="#contacto" data-book data-i="m2_c">Marcar sessão</a>
       </div>
       <div class="model" data-rv>
         <figure class="mimg"><img src="img/belong-home.jpg" alt="" loading="lazy"></figure>
@@ -867,10 +875,14 @@ footer a:hover{color:var(--gold)}
     <p data-rv data-i="ct_p">Uma sessão de estratégia de 30 minutos: o ambiente do formando, o pacote de evidência,
     e o verificador a recalcular a cadeia à sua frente. Sem slides.</p>
     <div data-rv style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-      <a class="btn btn-gold" href="mailto:[SUPPORT-EMAIL]?subject=Sess%C3%A3o%20de%20estrat%C3%A9gia%20Academy%20Platforms" data-i="ct_c1">Marcar sessão de estratégia</a>
+      <a class="btn btn-gold" href="mailto:[SUPPORT-EMAIL]?subject=Sess%C3%A3o%20de%20estrat%C3%A9gia%20Academy%20Platforms" data-book data-i="ct_c1">Marcar sessão de estratégia</a>
       <a class="btn btn-ghost" href="https://academy.edenrise.com/" target="_blank" rel="noopener" data-i="ct_c2">Explorar a plataforma</a>
     </div>
-    <div class="mono-note" data-rv>[SUPPORT-EMAIL — pendente] · [link Cal — pendente]</div>
+    <div class="calwrap" id="calwrap" data-rv hidden>
+      <div class="calhead"><span data-i="cal_h">Escolha um horário</span></div>
+      <div id="cal-inline"></div>
+    </div>
+    <div class="mono-note" data-rv id="calnote">[SUPPORT-EMAIL — pendente] · [link Cal — pendente]</div>
   </div>
 </section>
 
@@ -1000,7 +1012,7 @@ fq5_q:"Why isn't pricing per user?", fq5_a:"Because mandatory training priced pe
 ct_eb:"Start with strategy",
 ct_h2:"Your organisation already contains the knowledge.<br><em>We build the academy around it.</em>",
 ct_p:"A 30-minute strategy session: the learner environment, the evidence pack, and the verifier recomputing the chain in front of you. No slides.",
-ct_c1:"Book a strategy session", ct_c2:"Explore the platform",
+ct_c1:"Book a strategy session", cal_h:"Pick a time", ct_c2:"Explore the platform",
 ft_tag:"Your expertise. Structured, delivered and scaled.",
 ft_desc:"Corporate Academy Design &amp; Learning Technology",
 ft_pr:"No tracking cookies, no third-party analytics — that's why there's no banner.",
@@ -1321,6 +1333,97 @@ function initHero3D(){
     };
     addEventListener('scroll',onScroll,{passive:true}); onScroll();
   }
+
+/* ============ Cal.com booking ============
+   ONE line to go live: put your Cal link in CAL_LINK below, e.g.
+     const CAL_LINK = 'academy-platforms/strategy-session';
+   (the part after cal.com/ — username/event-slug).
+   While it is empty the CTAs keep their current mailto/anchor behaviour,
+   so nothing on the page is ever broken or fake. */
+const CAL_LINK = '';
+const CAL_ORIGIN = 'https://cal.com';
+
+(function initCal(){
+  if(!CAL_LINK) return;                       // not configured yet — leave the page as it is
+  const note=document.getElementById('calnote');
+  const wrap=document.getElementById('calwrap');
+  let loading=null;
+
+  function loadEmbed(){                        // lazy: only fetched when actually needed
+    if(loading) return loading;
+    loading=new Promise((res,rej)=>{
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document;
+        C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments;
+          if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || [];
+            d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; }
+          if (ar[0] === L) { const api = function () { p(api, arguments); };
+            const namespace = ar[1]; api.q = api.q || [];
+            if (typeof namespace === "string") { cal.ns[namespace]=cal.ns[namespace]||api;
+              p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); }
+            else p(cal, ar); return; }
+          p(cal, ar); };
+      })(window, "https://app.cal.com/embed/embed.js", "init");
+      try{
+        Cal("init", {origin: CAL_ORIGIN});
+        Cal("ui", {                            // Coastal Blues, so the calendar is part of the site
+          theme:"dark",
+          cssVarsPerTheme:{ dark:{
+            "cal-brand":"#A9D6E5",
+            "cal-bg":"#012A4A", "cal-bg-emphasis":"#013A63", "cal-bg-muted":"#01497C",
+            "cal-text":"#EAF4FA", "cal-text-emphasis":"#EAF4FA", "cal-text-subtle":"#89C2D9",
+            "cal-border":"rgba(169,214,229,.16)", "cal-border-subtle":"rgba(169,214,229,.09)",
+            "cal-brand-text":"#012A4A"
+          }},
+          hideEventTypeDetails:false, layout:"month_view"
+        });
+        res();
+      }catch(e){ rej(e); }
+    });
+    return loading;
+  }
+
+  /* inline calendar in the closing section — mounted when it first scrolls into view */
+  if(wrap){
+    wrap.hidden=false;
+    if(note) note.textContent=note.textContent.replace(' · [link Cal — pendente]','');
+    let mounted=false;
+    const mount=()=>{
+      if(mounted) return; mounted=true;
+      loadEmbed().then(()=>{
+        Cal("inline",{elementOrSelector:"#cal-inline",calLink:CAL_LINK,
+          config:{layout:"month_view"}});
+      }).catch(()=>{ wrap.hidden=true; });
+    };
+    /* mount when it comes near — belt and braces, because IntersectionObserver
+       callbacks are throttled in background/hidden tabs and would strand the calendar */
+    const near=()=>{ const r=wrap.getBoundingClientRect();
+      if(r.top < innerHeight*2){ mount(); removeEventListener('scroll',near); } };
+    addEventListener('scroll',near,{passive:true});
+    if('IntersectionObserver' in window){
+      const io=new IntersectionObserver(es=>{ if(es[0].isIntersecting){ io.disconnect(); mount(); } },
+        {rootMargin:'600px'});
+      io.observe(wrap);
+    }
+    near();
+    setTimeout(near,2500);   // last resort if the visitor never scrolls
+  }
+
+  /* every booking CTA opens the Cal modal instead of jumping/mailto */
+  document.querySelectorAll('[data-book]').forEach(el=>{
+    // NOTE: deliberately no data-cal-link attribute — Cal auto-binds those and would
+    // open a second modal on top of the one we open programmatically below.
+    // warm the script up on intent so the modal opens instantly
+    el.addEventListener('pointerenter',loadEmbed,{once:true,passive:true});
+    el.addEventListener('touchstart',loadEmbed,{once:true,passive:true});
+    el.addEventListener('click',ev=>{
+      ev.preventDefault();
+      loadEmbed().then(()=>{
+        if(window.Cal) Cal("modal",{calLink:CAL_LINK,config:{layout:"month_view"}});
+      }).catch(()=>{ location.href=el.getAttribute('href')||'#contacto'; });
+    });
+  });
+})();
+
   const failsafe=setTimeout(unveil,3500);
   function unveil(){ html.classList.remove('cine');
     const e=document.getElementById('entry'); if(e) e.style.display='none'; }
