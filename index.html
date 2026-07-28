@@ -195,12 +195,15 @@ header.hs .navlinks{background:rgba(169,214,229,.06);border-color:var(--line-sof
 @keyframes scue{0%,100%{transform:scaleY(.4);transform-origin:top;opacity:.4}50%{transform:scaleY(1);opacity:1}}
 @media(prefers-reduced-motion:reduce){.scue i{animation:none}}
 /* partner banner */
-.partners{background:var(--deep);padding:0 var(--pad) clamp(46px,6vw,78px);border-top:0}
-.partners .pinner{flex-direction:column;gap:26px;justify-content:center;max-width:1180px;margin:0 auto;
-  background:linear-gradient(180deg, rgba(169,214,229,.10), rgba(169,214,229,.04));
-  border:1px solid rgba(169,214,229,.20);border-radius:var(--r);
-  padding:clamp(30px,3.6vw,48px) clamp(24px,3vw,54px);
-  box-shadow:0 30px 80px -50px rgba(1,42,74,.9), inset 0 1px 0 rgba(169,214,229,.14)}
+.partners{position:relative;padding:0;overflow:hidden;
+  background:linear-gradient(180deg, rgba(169,214,229,.15), rgba(169,214,229,.05) 55%, rgba(169,214,229,.10));
+  border-top:1px solid rgba(169,214,229,.24);border-bottom:1px solid rgba(169,214,229,.24);
+  box-shadow:inset 0 1px 0 rgba(169,214,229,.18), inset 0 -1px 0 rgba(169,214,229,.10)}
+.partners::before{content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 55% 150% at 50% 50%, rgba(169,214,229,.12), transparent 72%)}
+.partners .pinner{position:relative;z-index:1;flex-direction:column;gap:22px;justify-content:center;
+  max-width:var(--maxw);margin:0 auto;background:none;border:0;border-radius:0;box-shadow:none;
+  padding-top:clamp(30px,3.6vw,46px);padding-bottom:clamp(30px,3.6vw,46px)}
 .partners .plabel{color:var(--sky2);width:100%;text-align:center;font-size:.64rem;letter-spacing:.3em}
 .partners .plogos{gap:clamp(34px,6vw,86px);justify-content:center;width:100%}
 .partners .plogo{color:var(--ivory);opacity:.92;filter:none}
@@ -305,10 +308,8 @@ header.hs .navlinks{background:rgba(169,214,229,.06);border-color:var(--line-sof
 .step h3{font-family:var(--sans);font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ivory);margin-bottom:.5em}
 .step p{font-size:.82rem;color:var(--mut);line-height:1.6}
 /* use cases */
-.uses{display:flex;gap:clamp(12px,1.4vw,18px);overflow-x:auto;scroll-snap-type:x mandatory;
-  padding:4px 0 22px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.uses::-webkit-scrollbar{display:none}
-.use{flex:0 0 clamp(210px,20vw,272px);scroll-snap-align:start;aspect-ratio:16/10;
+.uses{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.5vw,20px)}
+.use{aspect-ratio:16/10;
   background:linear-gradient(155deg, rgba(70,143,175,.30), rgba(1,42,74,.85));
   border:1px solid var(--line);border-radius:8px;padding:18px 20px;font-weight:600;font-size:.95rem;color:var(--ivory);
   display:flex;flex-direction:column;justify-content:flex-end;gap:8px;position:relative;overflow:hidden;
@@ -445,45 +446,27 @@ footer a:hover{color:var(--gold)}
 #cal-inline iframe{border-radius:16px}
 @media(max-width:640px){#cal-inline{min-height:560px}}
 .appdemo{display:flex;flex-direction:column;align-items:center;gap:26px;margin-top:clamp(30px,4vw,52px)}
-.phone{width:clamp(262px,23vw,300px);aspect-ratio:9/14.2;border-radius:36px;padding:10px;
-  background:linear-gradient(160deg, rgba(169,214,229,.22), rgba(169,214,229,.06));
-  border:1px solid rgba(169,214,229,.26);
-  box-shadow:0 50px 90px -46px rgba(1,42,74,.95), inset 0 1px 0 rgba(169,214,229,.2)}
-.pscreen{position:relative;height:100%;border-radius:28px;overflow:hidden;background:#01243f;
-  padding:16px 14px;display:flex;flex-direction:column;gap:12px}
-.ptop{display:flex;align-items:center;gap:8px;opacity:.85}
-.pmark{width:14px;height:14px;border-radius:4px;background:var(--sky2)}
-.pname{font-family:var(--serif);font-size:.9rem;color:var(--ivory);letter-spacing:.08em}
-.scene{position:absolute;left:14px;right:14px;top:52px;display:flex;flex-direction:column;gap:10px;opacity:0}
-.pfield{display:flex;align-items:center;gap:2px;min-height:38px;padding:9px 12px;border-radius:10px;
-  background:rgba(169,214,229,.09);border:1px solid rgba(169,214,229,.18)}
-.pq{font-size:.72rem;color:var(--ivory);line-height:1.35}
-.pcaret{width:1.5px;height:12px;background:var(--sky2);display:inline-block;flex:none}
-.pres{display:flex;flex-direction:column;gap:8px}
-.prow{display:flex;align-items:center;gap:9px;opacity:0}
-.pth{width:42px;height:28px;border-radius:5px;flex:none;
-  background:linear-gradient(140deg, rgba(70,143,175,.6), rgba(1,42,74,.9))}
-.pl{height:7px;border-radius:4px;background:rgba(169,214,229,.34);flex:1}
-.prow.r2 .pl{width:70%;flex:none;opacity:.7}
-.pvid{position:relative;border-radius:10px;overflow:hidden;height:104px;opacity:0;
-  background:linear-gradient(150deg, rgba(70,143,175,.55), rgba(1,42,74,.95));
-  border:1px solid rgba(169,214,229,.2);display:flex;align-items:center;justify-content:center}
-.pplay{width:34px;height:34px;border-radius:50%;background:var(--sky2);color:#01243f;
-  display:grid;place-items:center;font-size:.7rem;padding-left:2px}
-.pvt{position:absolute;left:10px;bottom:16px;right:10px;font-size:.6rem;color:var(--ivory);opacity:.9}
-.pbar{position:absolute;left:10px;right:10px;bottom:9px;height:3px;border-radius:3px;
-  background:rgba(169,214,229,.22);display:block;overflow:hidden}
-.pbar b{display:block;height:100%;width:0;background:var(--sky2);border-radius:3px}
-.prec{display:flex;align-items:center;gap:8px;font-size:.68rem;color:var(--ivory)}
-.prdot{width:9px;height:9px;border-radius:50%;background:#e2626d;flex:none}
-.pwave{display:flex;align-items:center;gap:3px;height:54px;padding:0 2px}
-.pwave i{flex:1;background:var(--sky2);border-radius:2px;height:12%;opacity:.85}
-.pup{position:relative;height:34px;border-radius:9px;background:rgba(169,214,229,.09);
-  border:1px solid rgba(169,214,229,.18);display:flex;align-items:center;padding:0 11px;opacity:0}
-.put{font-size:.63rem;color:rgba(169,214,229,.85)}
-.pdone{display:flex;align-items:center;gap:8px;opacity:0;font-size:.66rem;color:var(--ivory)}
-.pdone span:first-child{width:20px;height:20px;border-radius:50%;background:var(--sky2);color:#01243f;
-  display:grid;place-items:center;font-size:.62rem;flex:none}
+.eco{width:min(100%,860px);height:auto;display:block;margin:0 auto}
+.eco-pulse{transform-origin:144px 190px;animation:ecoPulse 1.7s ease-in-out infinite}
+@keyframes ecoPulse{0%,100%{opacity:.92;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
+.flow{stroke-linecap:round;stroke-dasharray:2 16;opacity:.95}
+.flow.up{animation:flowUp 1.15s linear infinite}
+.flow.down{animation:flowDown 1.45s linear infinite}
+@keyframes flowUp{to{stroke-dashoffset:-72}}
+@keyframes flowDown{to{stroke-dashoffset:72}}
+.eco-phone,.eco-acad{animation:ecoFloat 5.4s ease-in-out infinite}
+.pump .imp{transform-origin:120px 135px;animation:impSpin 2.4s linear infinite}
+@keyframes impSpin{to{transform:rotate(360deg)}}
+.ecocap{animation:ecoLbl 3s ease-in-out infinite}
+.eco-acad{animation-delay:-3.5s}
+@keyframes ecoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.ecolbl{animation:ecoLbl 3s ease-in-out infinite}
+.eco text.ecolbl:last-child{animation-delay:-2.1s}
+@keyframes ecoLbl{0%,100%{opacity:.45}50%{opacity:.9}}
+@media(prefers-reduced-motion:reduce){
+  .eco-pulse,.flow,.eco-phone,.eco-acad,.ecolbl,.ecocap,.pump .imp{animation:none}
+}
+@media(max-width:640px){.eco{width:100%}}
 .appnote{max-width:30em;text-align:center;color:var(--mut);font-size:.92rem}
 @media(max-width:640px){.phone{width:min(280px,78vw)}}
 [data-rv]{will-change:transform,opacity}
@@ -513,7 +496,7 @@ footer a:hover{color:var(--gold)}
   .exp-grid{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr 1fr;gap:26px 14px}
   .steps::before{display:none}
-  .use{flex:0 0 46vw}
+  .uses{grid-template-columns:repeat(2,1fr)}
   .models{grid-template-columns:1fr}
   .gov{grid-template-columns:1fr}
   .blk{grid-template-columns:36px 1fr}
@@ -527,7 +510,7 @@ footer a:hover{color:var(--gold)}
   .plogos{gap:26px}
 }
 @media(max-width:560px){
-  .use{flex:0 0 64vw} .steps{grid-template-columns:1fr}
+  .uses{grid-template-columns:repeat(2,1fr)} .steps{grid-template-columns:1fr}
   #entry .emk{width:88px;height:88px}
   #entry .ew{font-size:1rem}
   .rcard{flex:0 0 86vw}
@@ -682,27 +665,49 @@ footer a:hover{color:var(--gold)}
     </div>
 
     <div class="appdemo" data-rv>
-      <div class="phone" aria-hidden="true">
-        <div class="pscreen">
-          <div class="ptop"><span class="pmark"></span><span class="pname">Academy</span></div>
-
-          <div class="scene sc-ask">
-            <div class="pfield"><span class="pq"></span><i class="pcaret"></i></div>
-            <div class="pres">
-              <div class="prow r1"><span class="pth"></span><span class="pl"></span></div>
-              <div class="prow r2"><span class="pth"></span><span class="pl"></span></div>
-            </div>
-            <div class="pvid"><span class="pplay">▶</span><span class="pvt"></span><i class="pbar"><b></b></i></div>
-          </div>
-
-          <div class="scene sc-cap">
-            <div class="prec"><span class="prdot"></span><span class="prt"></span></div>
-            <div class="pwave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-            <div class="pup"><span class="put"></span><i class="pbar"><b></b></i></div>
-            <div class="pdone"><span>✓</span><span class="pdt"></span></div>
-          </div>
-        </div>
-      </div>
+      <svg class="eco" viewBox="0 0 900 290" fill="none" aria-hidden="true">
+        <g class="eco-phone">
+          <rect x="78" y="55" width="132" height="182" rx="24" stroke="rgba(169,214,229,.4)" stroke-width="1.6"
+                fill="rgba(169,214,229,.06)"/>
+          <rect x="92" y="70" width="104" height="152" rx="15" fill="rgba(1,42,74,.85)"/>
+          <g class="pump" stroke="#A9D6E5" stroke-width="1.7" fill="none" stroke-linecap="round">
+            <path d="M104 168 h80"/>
+            <rect x="140" y="120" width="42" height="30" rx="5"/>
+            <path d="M146 120 v-8 M164 120 v-8"/>
+            <circle cx="120" cy="135" r="17"/>
+            <circle class="imp" cx="120" cy="135" r="7"/>
+            <path d="M137 135 h3"/>
+            <path d="M120 118 v-13 h16"/>
+            <path d="M103 135 h-9 v14"/>
+            <path d="M112 168 v-8 M170 168 v-18"/>
+          </g>
+          <circle class="eco-pulse" cx="144" cy="190" r="17" fill="rgba(169,214,229,.92)"/>
+          <path d="M139 183 l12 7 -12 7 z" fill="#01243f"/>
+          <text class="ecocap" x="144" y="93" font-family="IBM Plex Mono" font-size="9"
+                fill="#A9D6E5" opacity=".8" text-anchor="middle" data-i="eco_cap">bomba · arranque</text>
+        </g>
+        <g class="eco-acad">
+          <rect x="648" y="60" width="192" height="170" rx="16" stroke="rgba(169,214,229,.4)" stroke-width="1.6"
+                fill="rgba(169,214,229,.06)"/>
+          <rect x="668" y="82" width="152" height="40" rx="7" fill="rgba(169,214,229,.18)"/>
+          <g stroke="#A9D6E5" stroke-width="1.4" fill="none" opacity=".85">
+            <circle cx="690" cy="102" r="8"/><rect x="702" y="95" width="16" height="14" rx="3"/>
+            <path d="M682 112 h40"/>
+          </g>
+          <rect x="728" y="96" width="76" height="5" rx="2.5" fill="rgba(169,214,229,.4)"/>
+          <rect x="728" y="106" width="52" height="5" rx="2.5" fill="rgba(169,214,229,.24)"/>
+          <rect x="668" y="132" width="70" height="34" rx="6" fill="rgba(169,214,229,.14)"/>
+          <rect x="750" y="132" width="70" height="34" rx="6" fill="rgba(169,214,229,.14)"/>
+          <rect x="668" y="178" width="152" height="8" rx="4" fill="rgba(169,214,229,.12)"/>
+          <rect x="668" y="196" width="104" height="8" rx="4" fill="rgba(169,214,229,.12)"/>
+        </g>
+        <path class="flow up"   d="M214 120 C 350 74, 520 74, 644 100" stroke="#A9D6E5" stroke-width="1.8"/>
+        <path class="flow down" d="M644 192 C 520 218, 350 218, 214 176" stroke="#61A5C2" stroke-width="1.8"/>
+        <g font-family="IBM Plex Mono" font-size="12" fill="#A9D6E5" opacity=".72" text-anchor="middle">
+          <text class="ecolbl" x="429" y="66"  data-i="eco_up">grava · pergunta</text>
+          <text class="ecolbl" x="429" y="244" data-i="eco_dn">vídeo · módulo</text>
+        </g>
+      </svg>
       <p class="appnote" data-i="pb_note">A app e a academia partilham a mesma base de conhecimento.
         O que a equipa grava hoje é o módulo de amanhã.</p>
     </div>
@@ -1005,7 +1010,7 @@ h_c1:"Book a 15-minute call", h_c2:"Explore the platform",
 h_s1:'<b>2 live academies</b> — <a href="https://academy.edenrise.com/" target="_blank" rel="noopener">EdenRise</a> &amp; <a href="https://meridante-dev.github.io/belong-academy/" target="_blank" rel="noopener">Belong</a>',
 h_s2:"PT + EN", h_s3:'GDPR · data in the <b>EU</b>', h_s4:'live in <b>&lt; 1 day</b>',
 pb_eb:"Companion app",
-pb_h2:"Scattered knowledge<br><em>trains no one.</em>", pb_note:"The app and the academy share one knowledge base. What your team records today is tomorrow's module.",
+pb_h2:"Scattered knowledge<br><em>trains no one.</em>", eco_cap:"pump · start-up", eco_up:"record · ask", eco_dn:"video · module", pb_note:"The app and the academy share one knowledge base. What your team records today is tomorrow's module.",
 pb_p:"One question. One video from your own academy. Back to work.",
 ex_eb:"Inside",
 ex_h2:"Press play.<br><em>That's the whole learning curve.</em>",
@@ -1108,7 +1113,6 @@ function setLang(lg){
     el.innerHTML=(LANG==='en'&&EN[k]!==undefined)?EN[k]:PT[k];
   });
   document.documentElement.lang=LANG;
-  if(window.__rebuildAppDemo) window.__rebuildAppDemo();
   document.querySelectorAll('.langsw button').forEach(b=>b.classList.toggle('on',b.dataset.lang===LANG));
   try{ localStorage.setItem('lum-lang',LANG); }catch(e){}
   if(window.__rebuildChain) window.__rebuildChain();
@@ -1634,61 +1638,6 @@ const CAL_ORIGIN = 'https://cal.com';
   }
 
 
-  /* ============ companion-app demo: ask → watch → record → module ============ */
-  (function appDemo(){
-    const ph=document.querySelector('.appdemo .phone'); if(!ph) return;
-    const COPY={
-      pt:{q:'Como opero o sistema de bombagem?', vt:'Bombagem — arranque seguro · 2 min',
-          rec:'A gravar procedimento…', up:'A enviar para a academia…', done:'Módulo criado · Mudança do filtro de areia'},
-      en:{q:'How do I operate the pump system?', vt:'Pump system — safe start-up · 2 min',
-          rec:'Recording the procedure…', up:'Uploading to the academy…', done:'Module created · Sand filter change'}
-    };
-    const q=ph.querySelector('.pq'), vt=ph.querySelector('.pvt'),
-          rt=ph.querySelector('.prt'), ut=ph.querySelector('.put'), dt=ph.querySelector('.pdt');
-    const L=()=>COPY[(document.documentElement.lang==='en')?'en':'pt'];
-    // static, readable end-state for reduced motion or no GSAP
-    const still=()=>{const c=L();q.textContent=c.q;vt.textContent=c.vt;dt.textContent=c.done;
-      rt.textContent=c.rec;ut.textContent=c.up;
-      ph.querySelector('.sc-ask').style.opacity=1;
-      ph.querySelectorAll('.prow,.pvid').forEach(e=>e.style.opacity=1);};
-    if(RM || !window.gsap){ still(); return; }
-
-    let tl;
-    const build=()=>{
-      const c=L();
-      if(tl) tl.kill();
-      gsap.set(['.sc-ask','.sc-cap'],{opacity:0});
-      gsap.set('.prow,.pvid,.pup,.pdone',{opacity:0});
-      gsap.set('.pbar b',{width:'0%'});
-      q.textContent=''; vt.textContent=c.vt; rt.textContent=c.rec; ut.textContent=c.up; dt.textContent=c.done;
-
-      tl=gsap.timeline({repeat:-1, defaults:{ease:'power2.out'}});
-      // ── scene 1: they ask
-      tl.to('.sc-ask',{opacity:1,duration:.4})
-        .to({i:0},{i:c.q.length,duration:1.5,ease:'none',
-             onUpdate(){ q.textContent=c.q.slice(0,Math.round(this.targets()[0].i)); }})
-        .to('.prow',{opacity:1,duration:.35,stagger:.12},'+=.25')
-        .to('.pvid',{opacity:1,duration:.45},'+=.15')
-        .to('.pvid .pbar b',{width:'100%',duration:1.9,ease:'none'},'-=.1')
-        .to('.sc-ask',{opacity:0,duration:.45},'+=.35')
-        // ── scene 2: they record, it becomes a module
-        .to('.sc-cap',{opacity:1,duration:.4})
-        .fromTo('.pwave i',{height:'12%'},
-          {height:()=>18+Math.random()*70+'%',duration:.34,yoyo:true,repeat:5,stagger:{each:.045,from:'center'},ease:'sine.inOut'})
-        .to('.pup',{opacity:1,duration:.35})
-        .to('.pup .pbar b',{width:'100%',duration:1.1,ease:'none'})
-        .to('.pdone',{opacity:1,duration:.4},'+=.1')
-        .to('.sc-cap',{opacity:0,duration:.45},'+=1.1');
-      if(!vis) tl.pause();
-    };
-    // only animate while it is on screen
-    let vis=true;
-    build();
-    new IntersectionObserver(es=>{ vis=es[0].isIntersecting; if(!tl) return; vis?tl.play():tl.pause(); },
-      {rootMargin:'150px'}).observe(ph);
-    document.addEventListener('visibilitychange',()=>{ if(tl) document.hidden?tl.pause():(vis&&tl.play()); });
-    window.__rebuildAppDemo=build;   // language switch re-types in the new language
-  })();
 
   /* touch devices: the product frame arrives dimensionally via scroll (no hover exists) */
   if(tilt && !matchMedia('(pointer:fine)').matches){
