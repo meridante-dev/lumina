@@ -543,6 +543,8 @@ footer a:hover{color:var(--gold)}
 .fdots button{width:8px;height:8px;border-radius:50%;border:0;padding:0;cursor:pointer;
   background:rgba(169,214,229,.3);transition:background .35s,width .35s}
 .fdots button.on{background:var(--sky2);width:24px;border-radius:99px}
+.flow3.held .fp.on{transform:scale(.985)}
+.flow3.held ~ .fdots button.on{background:rgba(169,214,229,.55)}
 @media(max-width:1100px){
   /* one card at a time, rotating — all panels share a grid cell so the
      container is as tall as the tallest and nothing jumps between slides */
@@ -1757,8 +1759,16 @@ const CAL_ORIGIN = 'https://cal.com';
       });
       dots.forEach((d,k)=>d.classList.toggle('on',k===i));
     };
+    let held=false;
     const stop=()=>{ if(timer){ clearInterval(timer); timer=null; } };
-    const start=()=>{ stop(); if(mq.matches && visible) timer=setInterval(()=>show(i+1),3000); };
+    const start=()=>{ stop(); if(mq.matches && visible && !held) timer=setInterval(()=>show(i+1),3000); };
+    /* press and hold anywhere on the card to freeze it; release to resume */
+    const hold=()=>{ held=true; wrap.classList.add('held'); stop(); };
+    const release=()=>{ if(!held) return; held=false; wrap.classList.remove('held'); start(); };
+    ['pointerdown','touchstart'].forEach(e=>wrap.addEventListener(e,hold,{passive:true}));
+    ['pointerup','pointercancel','pointerleave','touchend','touchcancel']
+      .forEach(e=>wrap.addEventListener(e,release,{passive:true}));
+    addEventListener('blur',release);
     const sync=()=>{ if(mq.matches){ show(i); start(); } else { stop(); panels.forEach(p=>p.classList.remove('on','prev')); } };
     dots.forEach((d,k)=>d.addEventListener('click',()=>{ show(k); start(); }));
     mq.addEventListener('change',sync);
