@@ -131,15 +131,7 @@ header.hid{transform:translateY(-102%)}
 .brand .bt{line-height:1.1}
 .brand .b1{font-family:var(--serif);font-weight:400;font-size:1.28rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ivory)}
 .brand .b2{font-family:var(--sans);font-weight:600;font-size:.54rem;letter-spacing:.52em;color:var(--gold);text-transform:uppercase;display:block;margin-top:2px}
-.navlinks{display:flex;gap:clamp(10px,1.5vw,20px);font-size:.82rem;font-weight:500;letter-spacing:-.008em;
-  text-transform:none;color:var(--mut);position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-  padding:9px 20px;border-radius:999px;background:rgba(169,214,229,.07);border:1px solid rgba(169,214,229,.13);
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:background .5s,border-color .5s}
-.navlinks a{padding:4px 8px;border-radius:999px;position:relative;transition:color .3s,background .3s}
-.navlinks a:hover{color:var(--ivory);background:rgba(169,214,229,.1)}
 
-header.hs .navlinks{background:rgba(169,214,229,.06);border-color:var(--line-soft)}
-@media(max-width:1100px){.navlinks{position:static;transform:none;background:none;border:0;backdrop-filter:none;padding:0}}
 .langsw{display:flex;gap:2px;margin-left:auto;position:relative;z-index:2}
 .langsw button{background:none;border:0;cursor:pointer;color:var(--dim);font:600 .66rem/1 var(--sans);
   letter-spacing:.12em;padding:6px 8px;transition:color .3s}
@@ -412,25 +404,6 @@ footer a:hover{color:var(--gold)}
 .skip{position:fixed;top:-60px;left:16px;z-index:300;background:var(--sky2);color:var(--deep);
   padding:12px 20px;border-radius:999px;font-weight:600;font-size:.85rem;transition:top .3s}
 .skip:focus-visible{top:14px}
-.burger{display:none;width:44px;height:44px;border:0;background:none;cursor:pointer;
-  align-items:center;justify-content:center;flex-direction:column;gap:6px;padding:0}
-.burger span{display:block;width:22px;height:1.5px;background:var(--ivory);border-radius:2px;
-  transition:transform .4s var(--ease),opacity .3s}
-.burger.on span:first-child{transform:translateY(3.75px) rotate(45deg)}
-.burger.on span:last-child{transform:translateY(-3.75px) rotate(-45deg)}
-.mmenu{position:fixed;inset:0;z-index:85;background:rgba(1,42,74,.97);
-  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  display:flex;flex-direction:column;justify-content:center;gap:8px;
-  padding:96px var(--pad) calc(40px + env(safe-area-inset-bottom));
-  opacity:0;transition:opacity .4s var(--ease)}
-.mmenu.on{opacity:1}
-.mmenu nav{display:flex;flex-direction:column}
-.mmenu a:not(.btn){font-family:var(--serif);font-size:2rem;color:var(--ivory);
-  padding:14px 0;border-bottom:1px solid var(--line-soft);opacity:0;transform:translateY(14px);
-  transition:opacity .5s var(--ease),transform .5s var(--ease),color .3s}
-.mmenu.on a:not(.btn){opacity:1;transform:none}
-.mmenu a:not(.btn):hover,.mmenu a:not(.btn):active{color:var(--sky2)}
-.mmenu .btn{margin-top:28px;justify-content:space-between;width:100%}
 .mbar{position:fixed;left:0;right:0;bottom:0;z-index:80;display:none;
   padding:12px var(--pad) calc(12px + env(safe-area-inset-bottom));
   background:linear-gradient(180deg,rgba(1,42,74,0),rgba(1,42,74,.94) 34%);
@@ -456,6 +429,31 @@ footer a:hover{color:var(--gold)}
   border-radius:3px;background:rgba(0,0,0,.5);z-index:3}
 .devscr{background:#04182b;border-radius:23px;overflow:hidden;padding:22px 9px 9px;
   display:flex;flex-direction:column;gap:7px}
+.dstep{position:absolute;inset:22px 9px 9px;display:flex;flex-direction:column;gap:7px;opacity:0}
+.devscr{position:relative;aspect-ratio:9/15.6}
+.drec{display:flex;align-items:center;gap:6px;font-size:.55rem;color:var(--ivory)}
+.ddot{width:9px;height:9px;border-radius:50%;background:#ff4d5e;flex:none;
+  box-shadow:0 0 0 0 rgba(255,77,94,.6);animation:recPulse 1.15s ease-out infinite}
+@keyframes recPulse{70%{box-shadow:0 0 0 8px rgba(255,77,94,0)}100%{box-shadow:0 0 0 0 rgba(255,77,94,0)}}
+.dwave{display:flex;align-items:center;gap:2.5px;height:74px;margin-top:4px}
+.dwave i{flex:1;background:var(--sky2);border-radius:2px;height:14%;opacity:.9}
+.dtime{font-family:var(--mono);font-size:.5rem;color:rgba(169,214,229,.75)}
+.dlbl{font-family:var(--mono);font-size:.48rem;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(169,214,229,.6)}
+.dtx{font-size:.52rem;line-height:1.5;color:var(--ivory);min-height:52px}
+.dup{height:4px;border-radius:3px;background:rgba(169,214,229,.2);overflow:hidden;margin-top:auto}
+.dup i{display:block;height:100%;width:0;background:var(--sky2);border-radius:3px}
+.acadrow i{transition:background .4s,box-shadow .4s}
+.acadrow i.on{background:rgba(169,214,229,.42);box-shadow:0 0 0 1px rgba(169,214,229,.5)}
+.acadflash{position:absolute;inset:0;border-radius:14px;pointer-events:none;opacity:0;
+  box-shadow:0 0 0 2px rgba(169,214,229,.55), 0 0 34px rgba(169,214,229,.35)}
+.acad{position:relative}
+.steps3{display:flex;gap:clamp(14px,3vw,44px);list-style:none;justify-content:center;flex-wrap:wrap;
+  margin-top:6px}
+.steps3 li{display:flex;align-items:center;gap:8px;font-size:.86rem;color:var(--mut);
+  transition:color .4s,opacity .4s;opacity:.55}
+.steps3 li.on{color:var(--ivory);opacity:1}
+.steps3 b{font-family:var(--mono);font-size:.6rem;color:var(--sky2);font-weight:500}
 .devq{display:flex;align-items:center;gap:6px;background:rgba(169,214,229,.11);
   border:1px solid rgba(169,214,229,.2);border-radius:8px;padding:6px 8px}
 .devq i{width:9px;height:9px;border-radius:50%;border:1.4px solid var(--sky2);flex:none;position:relative}
@@ -508,9 +506,6 @@ footer a:hover{color:var(--gold)}
 [data-rv]{will-change:transform,opacity}
 /* mobile */
 @media(max-width:980px){
-  .navlinks{display:none}
-  .burger{display:flex}
-  .navcta{display:none}
   .mbar{display:block}
   .langsw button{padding:11px 12px;min-height:44px}
   .brand{min-height:44px}
@@ -585,36 +580,12 @@ footer a:hover{color:var(--gold)}
       </svg>
       <span class="bt"><span class="b1">Academy</span><span class="b2">Platforms</span></span>
     </a>
-    <nav class="navlinks" aria-label="Secções">
-      <a href="#plataforma" data-i="n1">Plataforma</a>
-      <a href="#servico" data-i="n2">Serviço</a>
-      <a href="#modelos" data-i="n3">Modelos</a>
-      <a href="#prova" data-i="n4">A prova</a>
-      <a href="#governacao" data-i="n5">Governação</a>
-      <a href="#faq">FAQ</a>
-    </nav>
     <div class="langsw" role="group" aria-label="Language">
       <button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button>
     </div>
     <a class="btn btn-gold navcta" href="#contacto" data-book data-i="ncta">Marcar chamada</a>
-    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="mmenu">
-      <span></span><span></span>
-    </button>
   </div>
 </header>
-
-<!-- mobile menu -->
-<div class="mmenu" id="mmenu" hidden>
-  <nav aria-label="Secções">
-    <a href="#plataforma" data-i="n1">Plataforma</a>
-    <a href="#servico" data-i="n2">Serviço</a>
-    <a href="#modelos" data-i="n3">Modelos</a>
-    <a href="#prova" data-i="n4">A prova</a>
-    <a href="#governacao" data-i="n5">Governação</a>
-    <a href="#faq">FAQ</a>
-  </nav>
-  <a class="btn btn-gold" href="#contacto" data-book data-i="ncta">Sessão de estratégia</a>
-</div>
 
 <!-- sticky mobile action bar -->
 <div class="mbar" id="mbar" aria-hidden="true">
@@ -697,7 +668,7 @@ footer a:hover{color:var(--gold)}
     <div class="shead" data-rv>
       <span class="eyebrow" data-i="pb_eb">App companheira</span>
       <h2 data-i="pb_h2">Conhecimento disperso<br><em>não forma ninguém.</em></h2>
-      <p data-i="pb_p">Uma pergunta. Um vídeo da sua própria academia. De volta ao trabalho.</p>
+      <p data-i="pb_p">Faça uma pergunta. Veja a resposta exata. Volte ao trabalho em minutos.</p>
     </div>
 
     <div class="appdemo" data-rv>
@@ -705,14 +676,29 @@ footer a:hover{color:var(--gold)}
         <div class="dev" aria-hidden="true">
           <span class="devnotch"></span>
           <div class="devscr">
-            <div class="devq"><i></i><span data-i="eco_q">Como opero a bomba?</span></div>
-            <div class="devvid">
-              <video class="pumpvid" muted loop playsinline preload="none" poster="img/pump-poster.jpg">
-                <source src="img/pump-loop.mp4" type="video/mp4">
-              </video>
-              <span class="devplay">▶</span>
+            <!-- 01 record -->
+            <div class="dstep ds1">
+              <div class="drec"><span class="ddot"></span><span data-i="eco_s1">A gravar lição</span></div>
+              <div class="dwave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="dtime">00:12</div>
             </div>
-            <div class="devcap" data-i="eco_cap">Bomba · arranque seguro · 2 min</div>
+            <!-- 02 upload: speech becomes text, text becomes a module -->
+            <div class="dstep ds2">
+              <div class="dlbl" data-i="eco_s2">Transcrição</div>
+              <p class="dtx"></p>
+              <div class="dup"><i></i></div>
+            </div>
+            <!-- 03 instant recall -->
+            <div class="dstep ds3">
+              <div class="devq"><i></i><span data-i="eco_q">Como opero a bomba?</span></div>
+              <div class="devvid">
+                <video class="pumpvid" muted loop playsinline preload="none" poster="img/pump-poster.jpg">
+                  <source src="img/pump-loop.mp4" type="video/mp4">
+                </video>
+                <span class="devplay">▶</span>
+              </div>
+              <div class="devcap" data-i="eco_cap">Bomba · arranque seguro · 2 min</div>
+            </div>
           </div>
         </div>
 
@@ -732,12 +718,17 @@ footer a:hover{color:var(--gold)}
             <span class="acadplay">▶</span>
             <span class="acadlbl" data-i="eco_mod">Bomba · arranque seguro</span>
           </div>
-          <div class="acadrow"><i></i><i></i><i></i></div>
+          <div class="acadrow"><i class="a1"></i><i class="a2"></i><i class="a3 fresh"></i></div>
           <div class="acadline"></div><div class="acadline s"></div>
+          <span class="acadflash"></span>
         </div>
       </div>
-      <p class="appnote" data-i="pb_note">A app e a academia partilham a mesma base de conhecimento.
-        O que a equipa grava hoje é o módulo de amanhã.</p>
+      <ol class="steps3">
+        <li><b>01</b><span data-i="eco_t1">Grave uma lição</span></li>
+        <li><b>02</b><span data-i="eco_t2">Carregue para a academia</span></li>
+        <li><b>03</b><span data-i="eco_t3">Encontre em segundos</span></li>
+      </ol>
+      <p class="appnote" data-i="pb_note">Cada vídeo que a sua equipa grava torna-se formação pesquisável para o próximo.</p>
     </div>
   </div>
 </section>
@@ -1030,7 +1021,7 @@ const EN = {
 b2:"Corporate academies",
 e_t:"Corporate academy infrastructure",
 pt_l:"Partners &amp; live academies", pt_p:"partner", scue:"scroll",
-n1:"Platform", n2:"Service", n3:"Models", n4:"The proof", n5:"Governance", ncta:"Book a call",
+ncta:"Book a call",
 h_eb:"The Netflix for Workplace Training",
 h_h1:"Build better teams.<br><em>One lesson at a time.</em>",
 h_lead:"Training your team actually enjoys — and Portugal's 40 legal hours, handled. All in one platform.",
@@ -1038,8 +1029,8 @@ h_c1:"Book a 15-minute call", h_c2:"Explore the platform",
 h_s1:'<b>2 live academies</b> — <a href="https://academy.edenrise.com/" target="_blank" rel="noopener">EdenRise</a> &amp; <a href="https://meridante-dev.github.io/belong-academy/" target="_blank" rel="noopener">Belong</a>',
 h_s2:"PT + EN", h_s3:'GDPR · data in the <b>EU</b>', h_s4:'live in <b>&lt; 1 day</b>',
 pb_eb:"Companion app",
-pb_h2:"Scattered knowledge<br><em>trains no one.</em>", eco_q:"How do I operate the pump?", eco_cap:"Pump · safe start-up · 2 min", eco_mod:"Pump · safe start-up", eco_up:"question", eco_dn:"module", pb_note:"The app and the academy share one knowledge base. What your team records today is tomorrow's module.",
-pb_p:"One question. One video from your own academy. Back to work.",
+pb_h2:"Scattered knowledge<br><em>trains no one.</em>", eco_s1:"Recording lesson", eco_s2:"Transcript", eco_t1:"Record a lesson", eco_t2:"Upload it to the academy", eco_t3:"Find it in seconds", eco_q:"How do I operate the pump?", eco_cap:"Pump · safe start-up · 2 min", eco_mod:"Pump · safe start-up", eco_up:"question", eco_dn:"module", pb_note:"Every video your team records becomes searchable training for the next person.",
+pb_p:"Ask a question. Watch the exact answer. Get back to work in minutes.",
 ex_eb:"Inside",
 ex_h2:"Press play.<br><em>That's the whole learning curve.</em>",
 ex_p:"Short episodes your team can watch on a phone between shifts. Quick checks so it sticks. A tutor that answers at 11pm. In Portuguese and English.",
@@ -1141,6 +1132,7 @@ function setLang(lg){
     el.innerHTML=(LANG==='en'&&EN[k]!==undefined)?EN[k]:PT[k];
   });
   document.documentElement.lang=LANG;
+  if(window.__rebuildEco) window.__rebuildEco();
   document.querySelectorAll('.langsw button').forEach(b=>b.classList.toggle('on',b.dataset.lang===LANG));
   try{ localStorage.setItem('lum-lang',LANG); }catch(e){}
   if(window.__rebuildChain) window.__rebuildChain();
@@ -1405,30 +1397,13 @@ function initHero3D(){
   const hdr=document.querySelector('header');
   const hsT=()=>hdr.classList.toggle('hs',scrollY>70);
   addEventListener('scroll',hsT,{passive:true}); hsT();
-  /* mobile menu */
-  const burger=document.getElementById('burger'), mmenu=document.getElementById('mmenu');
-  if(burger&&mmenu){
-    const setMenu=open=>{
-      burger.classList.toggle('on',open);
-      burger.setAttribute('aria-expanded',open?'true':'false');
-      if(open){ mmenu.hidden=false; requestAnimationFrame(()=>mmenu.classList.add('on'));
-                setTimeout(()=>{const f=mmenu.querySelector('a'); if(f) f.focus();},450);
-                mmenu.querySelectorAll('a:not(.btn)').forEach((a,i)=>a.style.transitionDelay=(.06+i*.045)+'s');
-                document.body.style.overflow='hidden'; }
-      else { mmenu.classList.remove('on'); document.body.style.overflow='';
-             setTimeout(()=>{ if(!mmenu.classList.contains('on')) mmenu.hidden=true; },420); }
-    };
-    burger.addEventListener('click',()=>setMenu(!burger.classList.contains('on')));
-    mmenu.addEventListener('click',e=>{ if(e.target.tagName==='A') setMenu(false); });
-    addEventListener('keydown',e=>{ if(e.key==='Escape'&&burger.classList.contains('on')) setMenu(false); });
-  }
   /* sticky action bar once the hero is behind you */
   const mbar=document.getElementById('mbar'), heroEl=document.querySelector('.hero');
   if(mbar&&heroEl){
     const onScroll=()=>{
       const past=scrollY>heroEl.offsetHeight*.85;
       const atEnd=scrollY+innerHeight>document.body.scrollHeight-260;
-      mbar.classList.toggle('on',past&&!atEnd&&!(burger&&burger.classList.contains('on')));
+      mbar.classList.toggle('on',past&&!atEnd);
     };
     addEventListener('scroll',onScroll,{passive:true}); onScroll();
   }
@@ -1667,15 +1642,59 @@ const CAL_ORIGIN = 'https://cal.com';
 
 
 
-  /* the companion-app loop plays only while visible */
-  (function(){
-    const v=document.querySelector('.pumpvid'); if(!v) return;
-    if(RM){ v.removeAttribute('loop'); return; }
-    const io=new IntersectionObserver(es=>{
-      if(es[0].isIntersecting){ v.play().catch(()=>{}); } else { v.pause(); }
-    },{rootMargin:'200px'});
-    io.observe(v);
-    document.addEventListener('visibilitychange',()=>{ document.hidden?v.pause():null; });
+  /* ============ companion app: record → upload → instant recall ============ */
+  (function ecoLoop(){
+    const eco=document.querySelector('.eco'); if(!eco) return;
+    const v=eco.querySelector('.pumpvid'), tx=eco.querySelector('.dtx'),
+          steps=[...document.querySelectorAll('.steps3 li')],
+          cards=[...eco.querySelectorAll('.acadrow i')];
+    const TXT={pt:'Antes de arrancar a bomba, abra a válvula de admissão e confirme a pressão…',
+               en:'Before starting the pump, open the intake valve and check the pressure…'};
+    const say=()=>TXT[document.documentElement.lang==='en'?'en':'pt'];
+    const mark=i=>steps.forEach((s2,n)=>s2.classList.toggle('on',n===i));
+
+    if(RM || !window.gsap){
+      gsap && gsap.set('.ds3',{opacity:1}); mark(2);
+      document.querySelector('.ds3') && (document.querySelector('.ds3').style.opacity=1);
+      tx.textContent=say(); return;
+    }
+    let tl;
+    const build=()=>{
+      if(tl) tl.kill();
+      gsap.set('.dstep',{opacity:0}); gsap.set('.dup i,.acadflash',{width:'0%',opacity:0});
+      cards.forEach(c=>c.classList.remove('on')); tx.textContent='';
+      const line=say();
+      tl=gsap.timeline({repeat:-1,defaults:{ease:'power2.out'}});
+      // 01 record — the red button and a live voice
+      tl.call(()=>mark(0))
+        .to('.ds1',{opacity:1,duration:.35})
+        .to('.dwave i',{height:()=>18+Math.random()*72+'%',duration:.26,yoyo:true,repeat:3,
+             stagger:{each:.022,from:'center'},ease:'sine.inOut'},'<')
+        .to('.ds1',{opacity:0,duration:.35},'+=.15')
+      // 02 upload — speech becomes text, text becomes a module
+        .call(()=>mark(1))
+        .to('.ds2',{opacity:1,duration:.35})
+        .to({i:0},{i:line.length,duration:1.5,ease:'none',
+             onUpdate(){ tx.textContent=line.slice(0,Math.round(this.targets()[0].i)); }})
+        .to('.dup',{opacity:1,duration:.2},'-=.3')
+        .to('.dup i',{width:'100%',duration:.9,ease:'power1.inOut'})
+        .call(()=>{ cards[2].classList.add('on'); })
+        .fromTo('.acadflash',{opacity:0},{opacity:1,duration:.35,yoyo:true,repeat:1})
+        .to('.ds2',{opacity:0,duration:.35},'+=.2')
+      // 03 instant recall — someone searches and the lesson is there
+        .call(()=>mark(2))
+        .to('.ds3',{opacity:1,duration:.35})
+        .call(()=>{ v && v.play().catch(()=>{}); })
+        .to({},{duration:2.8})
+        .call(()=>{ v && v.pause(); })
+        .to('.ds3',{opacity:0,duration:.4});
+    };
+    build();
+    window.__rebuildEco=build;
+    let io=new IntersectionObserver(es=>{ if(!tl) return;
+      es[0].isIntersecting ? tl.play() : (tl.pause(), v&&v.pause()); },{rootMargin:'200px'});
+    io.observe(eco);
+    document.addEventListener('visibilitychange',()=>{ if(tl&&document.hidden){tl.pause(); v&&v.pause();} });
   })();
 
   /* touch devices: the product frame arrives dimensionally via scroll (no hover exists) */
