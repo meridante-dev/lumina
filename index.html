@@ -444,6 +444,48 @@ footer a:hover{color:var(--gold)}
 #cal-inline{min-height:640px;border-radius:16px;overflow:hidden}
 #cal-inline iframe{border-radius:16px}
 @media(max-width:640px){#cal-inline{min-height:560px}}
+.appdemo{display:flex;flex-direction:column;align-items:center;gap:26px;margin-top:clamp(30px,4vw,52px)}
+.phone{width:clamp(262px,23vw,300px);aspect-ratio:9/14.2;border-radius:36px;padding:10px;
+  background:linear-gradient(160deg, rgba(169,214,229,.22), rgba(169,214,229,.06));
+  border:1px solid rgba(169,214,229,.26);
+  box-shadow:0 50px 90px -46px rgba(1,42,74,.95), inset 0 1px 0 rgba(169,214,229,.2)}
+.pscreen{position:relative;height:100%;border-radius:28px;overflow:hidden;background:#01243f;
+  padding:16px 14px;display:flex;flex-direction:column;gap:12px}
+.ptop{display:flex;align-items:center;gap:8px;opacity:.85}
+.pmark{width:14px;height:14px;border-radius:4px;background:var(--sky2)}
+.pname{font-family:var(--serif);font-size:.9rem;color:var(--ivory);letter-spacing:.08em}
+.scene{position:absolute;left:14px;right:14px;top:52px;display:flex;flex-direction:column;gap:10px;opacity:0}
+.pfield{display:flex;align-items:center;gap:2px;min-height:38px;padding:9px 12px;border-radius:10px;
+  background:rgba(169,214,229,.09);border:1px solid rgba(169,214,229,.18)}
+.pq{font-size:.72rem;color:var(--ivory);line-height:1.35}
+.pcaret{width:1.5px;height:12px;background:var(--sky2);display:inline-block;flex:none}
+.pres{display:flex;flex-direction:column;gap:8px}
+.prow{display:flex;align-items:center;gap:9px;opacity:0}
+.pth{width:42px;height:28px;border-radius:5px;flex:none;
+  background:linear-gradient(140deg, rgba(70,143,175,.6), rgba(1,42,74,.9))}
+.pl{height:7px;border-radius:4px;background:rgba(169,214,229,.34);flex:1}
+.prow.r2 .pl{width:70%;flex:none;opacity:.7}
+.pvid{position:relative;border-radius:10px;overflow:hidden;height:104px;opacity:0;
+  background:linear-gradient(150deg, rgba(70,143,175,.55), rgba(1,42,74,.95));
+  border:1px solid rgba(169,214,229,.2);display:flex;align-items:center;justify-content:center}
+.pplay{width:34px;height:34px;border-radius:50%;background:var(--sky2);color:#01243f;
+  display:grid;place-items:center;font-size:.7rem;padding-left:2px}
+.pvt{position:absolute;left:10px;bottom:16px;right:10px;font-size:.6rem;color:var(--ivory);opacity:.9}
+.pbar{position:absolute;left:10px;right:10px;bottom:9px;height:3px;border-radius:3px;
+  background:rgba(169,214,229,.22);display:block;overflow:hidden}
+.pbar b{display:block;height:100%;width:0;background:var(--sky2);border-radius:3px}
+.prec{display:flex;align-items:center;gap:8px;font-size:.68rem;color:var(--ivory)}
+.prdot{width:9px;height:9px;border-radius:50%;background:#e2626d;flex:none}
+.pwave{display:flex;align-items:center;gap:3px;height:54px;padding:0 2px}
+.pwave i{flex:1;background:var(--sky2);border-radius:2px;height:12%;opacity:.85}
+.pup{position:relative;height:34px;border-radius:9px;background:rgba(169,214,229,.09);
+  border:1px solid rgba(169,214,229,.18);display:flex;align-items:center;padding:0 11px;opacity:0}
+.put{font-size:.63rem;color:rgba(169,214,229,.85)}
+.pdone{display:flex;align-items:center;gap:8px;opacity:0;font-size:.66rem;color:var(--ivory)}
+.pdone span:first-child{width:20px;height:20px;border-radius:50%;background:var(--sky2);color:#01243f;
+  display:grid;place-items:center;font-size:.62rem;flex:none}
+.appnote{max-width:30em;text-align:center;color:var(--mut);font-size:.92rem}
+@media(max-width:640px){.phone{width:min(280px,78vw)}}
 [data-rv]{will-change:transform,opacity}
 /* mobile */
 @media(max-width:980px){
@@ -634,35 +676,36 @@ footer a:hover{color:var(--gold)}
 <section class="sec band-deep statement" id="problema">
   <div class="wrap">
     <div class="shead" data-rv>
-      <span class="eyebrow" data-i="pb_eb">O problema</span>
+      <span class="eyebrow" data-i="pb_eb">App companheira</span>
       <h2 data-i="pb_h2">Conhecimento disperso<br><em>não forma ninguém.</em></h2>
-      <p data-i="pb_p">Processos em pastas, standards em três cabeças, onboarding à sorte. Quando alguém sai,
-      o conhecimento sai com ela. Nós transformamos isso numa academia com a sua marca —
-      um só ambiente para integrar, formar e desenvolver a equipa.</p>
+      <p data-i="pb_p">Uma pergunta. Um vídeo da sua própria academia. De volta ao trabalho.</p>
     </div>
-    <svg class="arch-visual" viewBox="0 0 900 240" fill="none" data-rv aria-hidden="true">
-      <g stroke="#012A4A" stroke-opacity=".4">
-        <rect class="draw" x="20" y="30" width="70" height="46" rx="4"/>
-        <rect class="draw" x="60" y="120" width="70" height="46" rx="4" transform="rotate(-6 60 120)"/>
-        <rect class="draw" x="30" y="185" width="70" height="40" rx="4" transform="rotate(4 30 185)"/>
-      </g>
-      <path class="draw" d="M140 60 C260 60 260 120 380 120" stroke="#468FAF" stroke-opacity=".5"/>
-      <path class="draw" d="M140 140 C250 140 260 124 380 122" stroke="#468FAF" stroke-opacity=".5"/>
-      <path class="draw" d="M110 205 C260 205 270 128 380 124" stroke="#468FAF" stroke-opacity=".5"/>
-      <path data-flow d="M380 122 H480" stroke="#A9D6E5"/>
-      <g stroke="#012A4A">
-        <rect class="draw" x="500" y="40" width="170" height="160" rx="8"/>
-        <path class="draw" d="M530 170 H570 V140 H610 V110 H650" stroke="#A9D6E5"/>
-        <line class="draw" x1="530" y1="80" x2="650" y2="80" stroke-opacity=".5"/>
-        <line class="draw" x1="530" y1="100" x2="620" y2="100" stroke-opacity=".3"/>
-      </g>
-      <path data-flow d="M690 120 H770" stroke="#A9D6E5"/>
-      <g font-family="IBM Plex Mono" font-size="11" fill="#89C2D9" opacity=".55">
-        <text x="20" y="18" data-i="pb_t1">conhecimento disperso</text>
-        <text x="500" y="28" data-i="pb_t2">arquitetura de aprendizagem</text>
-        <text x="778" y="124" fill="#A9D6E5" data-i="pb_t3">desempenho</text>
-      </g>
-    </svg>
+
+    <div class="appdemo" data-rv>
+      <div class="phone" aria-hidden="true">
+        <div class="pscreen">
+          <div class="ptop"><span class="pmark"></span><span class="pname">Academy</span></div>
+
+          <div class="scene sc-ask">
+            <div class="pfield"><span class="pq"></span><i class="pcaret"></i></div>
+            <div class="pres">
+              <div class="prow r1"><span class="pth"></span><span class="pl"></span></div>
+              <div class="prow r2"><span class="pth"></span><span class="pl"></span></div>
+            </div>
+            <div class="pvid"><span class="pplay">▶</span><span class="pvt"></span><i class="pbar"><b></b></i></div>
+          </div>
+
+          <div class="scene sc-cap">
+            <div class="prec"><span class="prdot"></span><span class="prt"></span></div>
+            <div class="pwave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="pup"><span class="put"></span><i class="pbar"><b></b></i></div>
+            <div class="pdone"><span>✓</span><span class="pdt"></span></div>
+          </div>
+        </div>
+      </div>
+      <p class="appnote" data-i="pb_note">A app e a academia partilham a mesma base de conhecimento.
+        O que a equipa grava hoje é o módulo de amanhã.</p>
+    </div>
   </div>
 </section>
 
@@ -731,16 +774,6 @@ footer a:hover{color:var(--gold)}
 </section>
 
 <!-- ================= NÚMEROS ================= -->
-<section class="sec" style="padding-top:clamp(70px,9vw,120px);padding-bottom:clamp(70px,9vw,120px)">
-  <div class="wrap">
-    <div class="stats" data-rv>
-      <div class="stat"><b data-count="2">0</b><span data-i="st1">academias ao vivo</span></div>
-      <div class="stat"><b><span data-count="40">0</span>h</b><span data-i="st2">registo das 40h · Art. 131.º CT</span></div>
-      <div class="stat"><b>≤<span data-count="30">0</span><span class="gd">d</span></b><span data-i="st3">apagamento RGPD com recibo</span></div>
-      <div class="stat"><b data-count="0">0</b><span data-i="st4">cookies de rastreio no site</span></div>
-    </div>
-  </div>
-</section>
 
 <!-- ================= SISTEMA DE SERVIÇO ================= -->
 <section class="sec" id="servico">
@@ -971,10 +1004,9 @@ h_lead:"Training your team actually enjoys — and Portugal's 40 legal hours, ha
 h_c1:"Book a 15-minute call", h_c2:"Explore the platform",
 h_s1:'<b>2 live academies</b> — <a href="https://academy.edenrise.com/" target="_blank" rel="noopener">EdenRise</a> &amp; <a href="https://meridante-dev.github.io/belong-academy/" target="_blank" rel="noopener">Belong</a>',
 h_s2:"PT + EN", h_s3:'GDPR · data in the <b>EU</b>', h_s4:'live in <b>&lt; 1 day</b>',
-pb_eb:"The problem",
-pb_h2:"Scattered knowledge<br><em>trains no one.</em>",
-pb_p:"Processes in folders, standards in three people's heads, onboarding left to chance. When someone leaves, the knowledge leaves with them. We turn that into an academy under your brand — one environment to onboard, train and develop your team.",
-pb_t1:"scattered knowledge", pb_t2:"learning architecture", pb_t3:"performance",
+pb_eb:"Companion app",
+pb_h2:"Scattered knowledge<br><em>trains no one.</em>", pb_note:"The app and the academy share one knowledge base. What your team records today is tomorrow's module.",
+pb_p:"One question. One video from your own academy. Back to work.",
 ex_eb:"Inside",
 ex_h2:"Press play.<br><em>That's the whole learning curve.</em>",
 ex_p:"Short episodes your team can watch on a phone between shifts. Quick checks so it sticks. A tutor that answers at 11pm. In Portuguese and English.",
@@ -988,7 +1020,6 @@ cr_n:"Completion + applied scenario + retention ≥ 7 days + manager confirmatio
 cr_hash:'evidence <b>sha-256 a56ce2f2…7d1b</b> · verifiable at verify — <span style="opacity:.7">recreation of the real certificate · example data</span>',
 in_e:"Insights · example data", in_r1:"Path completion", in_r2:"Recorded hours (40h)", in_r3:"Verified competencies",
 in_n:"illustrative interface — the real numbers live in your instance",
-st1:"live academies", st2:"the 40h register · Labour Code Art. 131", st3:"GDPR erasure with receipt", st4:"tracking cookies on this site",
 sv_eb:"How it works",
 sv_h2:"Open it. Press play.<br><em>You're compliant.</em>",
 sv1_h:"Open", sv1_p:"Your team signs in to your own branded academy.",
@@ -1077,6 +1108,7 @@ function setLang(lg){
     el.innerHTML=(LANG==='en'&&EN[k]!==undefined)?EN[k]:PT[k];
   });
   document.documentElement.lang=LANG;
+  if(window.__rebuildAppDemo) window.__rebuildAppDemo();
   document.querySelectorAll('.langsw button').forEach(b=>b.classList.toggle('on',b.dataset.lang===LANG));
   try{ localStorage.setItem('lum-lang',LANG); }catch(e){}
   if(window.__rebuildChain) window.__rebuildChain();
@@ -1600,6 +1632,63 @@ const CAL_ORIGIN = 'https://cal.com';
       })();
     })();
   }
+
+
+  /* ============ companion-app demo: ask → watch → record → module ============ */
+  (function appDemo(){
+    const ph=document.querySelector('.appdemo .phone'); if(!ph) return;
+    const COPY={
+      pt:{q:'Como opero o sistema de bombagem?', vt:'Bombagem — arranque seguro · 2 min',
+          rec:'A gravar procedimento…', up:'A enviar para a academia…', done:'Módulo criado · Mudança do filtro de areia'},
+      en:{q:'How do I operate the pump system?', vt:'Pump system — safe start-up · 2 min',
+          rec:'Recording the procedure…', up:'Uploading to the academy…', done:'Module created · Sand filter change'}
+    };
+    const q=ph.querySelector('.pq'), vt=ph.querySelector('.pvt'),
+          rt=ph.querySelector('.prt'), ut=ph.querySelector('.put'), dt=ph.querySelector('.pdt');
+    const L=()=>COPY[(document.documentElement.lang==='en')?'en':'pt'];
+    // static, readable end-state for reduced motion or no GSAP
+    const still=()=>{const c=L();q.textContent=c.q;vt.textContent=c.vt;dt.textContent=c.done;
+      rt.textContent=c.rec;ut.textContent=c.up;
+      ph.querySelector('.sc-ask').style.opacity=1;
+      ph.querySelectorAll('.prow,.pvid').forEach(e=>e.style.opacity=1);};
+    if(RM || !window.gsap){ still(); return; }
+
+    let tl;
+    const build=()=>{
+      const c=L();
+      if(tl) tl.kill();
+      gsap.set(['.sc-ask','.sc-cap'],{opacity:0});
+      gsap.set('.prow,.pvid,.pup,.pdone',{opacity:0});
+      gsap.set('.pbar b',{width:'0%'});
+      q.textContent=''; vt.textContent=c.vt; rt.textContent=c.rec; ut.textContent=c.up; dt.textContent=c.done;
+
+      tl=gsap.timeline({repeat:-1, defaults:{ease:'power2.out'}});
+      // ── scene 1: they ask
+      tl.to('.sc-ask',{opacity:1,duration:.4})
+        .to({i:0},{i:c.q.length,duration:1.5,ease:'none',
+             onUpdate(){ q.textContent=c.q.slice(0,Math.round(this.targets()[0].i)); }})
+        .to('.prow',{opacity:1,duration:.35,stagger:.12},'+=.25')
+        .to('.pvid',{opacity:1,duration:.45},'+=.15')
+        .to('.pvid .pbar b',{width:'100%',duration:1.9,ease:'none'},'-=.1')
+        .to('.sc-ask',{opacity:0,duration:.45},'+=.35')
+        // ── scene 2: they record, it becomes a module
+        .to('.sc-cap',{opacity:1,duration:.4})
+        .fromTo('.pwave i',{height:'12%'},
+          {height:()=>18+Math.random()*70+'%',duration:.34,yoyo:true,repeat:5,stagger:{each:.045,from:'center'},ease:'sine.inOut'})
+        .to('.pup',{opacity:1,duration:.35})
+        .to('.pup .pbar b',{width:'100%',duration:1.1,ease:'none'})
+        .to('.pdone',{opacity:1,duration:.4},'+=.1')
+        .to('.sc-cap',{opacity:0,duration:.45},'+=1.1');
+      if(!vis) tl.pause();
+    };
+    // only animate while it is on screen
+    let vis=true;
+    build();
+    new IntersectionObserver(es=>{ vis=es[0].isIntersecting; if(!tl) return; vis?tl.play():tl.pause(); },
+      {rootMargin:'150px'}).observe(ph);
+    document.addEventListener('visibilitychange',()=>{ if(tl) document.hidden?tl.pause():(vis&&tl.play()); });
+    window.__rebuildAppDemo=build;   // language switch re-types in the new language
+  })();
 
   /* touch devices: the product frame arrives dimensionally via scroll (no hover exists) */
   if(tilt && !matchMedia('(pointer:fine)').matches){
