@@ -309,10 +309,10 @@ header.hs .navlinks{background:rgba(169,214,229,.06);border-color:var(--line-sof
 .step p{font-size:.82rem;color:var(--mut);line-height:1.6}
 /* use cases */
 .uses{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.5vw,20px)}
-.use{aspect-ratio:16/10;
-  background:linear-gradient(155deg, rgba(70,143,175,.30), rgba(1,42,74,.85));
-  border:1px solid var(--line);border-radius:8px;padding:18px 20px;font-weight:600;font-size:.95rem;color:var(--ivory);
-  display:flex;flex-direction:column;justify-content:flex-end;gap:8px;position:relative;overflow:hidden;
+.use{min-height:0;
+  background:linear-gradient(155deg, rgba(70,143,175,.26), rgba(1,42,74,.8));
+  border:1px solid var(--line);border-radius:8px;padding:16px 18px;font-weight:600;font-size:.92rem;color:var(--ivory);
+  display:flex;flex-direction:column;justify-content:flex-end;gap:5px;position:relative;overflow:hidden;
   cursor:default;will-change:transform;
   transition:transform .35s var(--ease),box-shadow .35s,border-color .35s,background .35s}
 .use::after{content:'';position:absolute;inset:0;border-radius:8px;pointer-events:none;
@@ -446,27 +446,63 @@ footer a:hover{color:var(--gold)}
 #cal-inline iframe{border-radius:16px}
 @media(max-width:640px){#cal-inline{min-height:560px}}
 .appdemo{display:flex;flex-direction:column;align-items:center;gap:26px;margin-top:clamp(30px,4vw,52px)}
-.eco{width:min(100%,860px);height:auto;display:block;margin:0 auto}
-.eco-pulse{transform-origin:144px 190px;animation:ecoPulse 1.7s ease-in-out infinite}
-@keyframes ecoPulse{0%,100%{opacity:.92;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
-.flow{stroke-linecap:round;stroke-dasharray:2 16;opacity:.95}
+.eco{display:flex;align-items:center;justify-content:center;gap:clamp(4px,1vw,14px);width:100%;flex-wrap:wrap}
+/* device */
+.dev{position:relative;flex:0 0 auto;width:clamp(178px,15vw,206px);border-radius:30px;padding:9px;
+  background:linear-gradient(165deg, rgba(169,214,229,.30), rgba(1,42,74,.9));
+  box-shadow:0 40px 70px -34px rgba(0,0,0,.85), inset 0 1px 0 rgba(255,255,255,.22),
+             inset 0 -1px 0 rgba(0,0,0,.4)}
+.devnotch{position:absolute;top:13px;left:50%;transform:translateX(-50%);width:44px;height:5px;
+  border-radius:3px;background:rgba(0,0,0,.5);z-index:3}
+.devscr{background:#04182b;border-radius:23px;overflow:hidden;padding:22px 9px 9px;
+  display:flex;flex-direction:column;gap:7px}
+.devq{display:flex;align-items:center;gap:6px;background:rgba(169,214,229,.11);
+  border:1px solid rgba(169,214,229,.2);border-radius:8px;padding:6px 8px}
+.devq i{width:9px;height:9px;border-radius:50%;border:1.4px solid var(--sky2);flex:none;position:relative}
+.devq i::after{content:'';position:absolute;right:-3px;bottom:-3px;width:4px;height:1.4px;
+  background:var(--sky2);transform:rotate(45deg)}
+.devq span{font-size:.52rem;color:var(--ivory);line-height:1.2}
+.devvid{position:relative;border-radius:10px;overflow:hidden;aspect-ratio:9/13;background:#02101d}
+.devvid video{width:100%;height:100%;object-fit:cover;display:block}
+.devplay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:30px;height:30px;border-radius:50%;background:rgba(169,214,229,.94);color:#01243f;
+  display:grid;place-items:center;font-size:.6rem;padding-left:2px;
+  box-shadow:0 6px 18px rgba(0,0,0,.45);animation:ecoPulse 1.9s ease-in-out infinite}
+.devcap{font-size:.5rem;color:rgba(169,214,229,.8);font-family:var(--mono);letter-spacing:.02em}
+/* link */
+.ecolink{flex:0 0 auto;width:clamp(120px,17vw,220px);height:auto}
+.flow{stroke-linecap:round;stroke-dasharray:2 15}
 .flow.up{animation:flowUp 1.15s linear infinite}
 .flow.down{animation:flowDown 1.45s linear infinite}
-@keyframes flowUp{to{stroke-dashoffset:-72}}
-@keyframes flowDown{to{stroke-dashoffset:72}}
-.eco-phone,.eco-acad{animation:ecoFloat 5.4s ease-in-out infinite}
-.pump .imp{transform-origin:120px 135px;animation:impSpin 2.4s linear infinite}
-@keyframes impSpin{to{transform:rotate(360deg)}}
-.ecocap{animation:ecoLbl 3s ease-in-out infinite}
-.eco-acad{animation-delay:-3.5s}
-@keyframes ecoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes flowUp{to{stroke-dashoffset:-68}}
+@keyframes flowDown{to{stroke-dashoffset:68}}
 .ecolbl{animation:ecoLbl 3s ease-in-out infinite}
-.eco text.ecolbl:last-child{animation-delay:-2.1s}
-@keyframes ecoLbl{0%,100%{opacity:.45}50%{opacity:.9}}
-@media(prefers-reduced-motion:reduce){
-  .eco-pulse,.flow,.eco-phone,.eco-acad,.ecolbl,.ecocap,.pump .imp{animation:none}
+.ecolink text:last-of-type{animation-delay:-1.5s}
+@keyframes ecoLbl{0%,100%{opacity:.5}50%{opacity:.95}}
+@keyframes ecoPulse{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.09)}}
+/* academy */
+.acad{flex:0 0 auto;width:clamp(230px,26vw,320px);border-radius:14px;padding:12px;
+  background:rgba(169,214,229,.07);border:1px solid rgba(169,214,229,.24);
+  box-shadow:0 34px 64px -40px rgba(0,0,0,.8);display:flex;flex-direction:column;gap:9px}
+.acadtop{display:flex;align-items:center;gap:7px}
+.acadmark{width:12px;height:12px;border-radius:4px;background:var(--sky2)}
+.acadname{font-family:var(--serif);font-size:.8rem;color:var(--ivory);letter-spacing:.06em}
+.acadfeat{position:relative;border-radius:9px;overflow:hidden;aspect-ratio:16/9}
+.acadfeat img{width:100%;height:100%;object-fit:cover;display:block;opacity:.92}
+.acadplay{position:absolute;left:11px;bottom:10px;width:22px;height:22px;border-radius:50%;
+  background:rgba(169,214,229,.94);color:#01243f;display:grid;place-items:center;font-size:.46rem;padding-left:1px}
+.acadlbl{position:absolute;right:10px;bottom:13px;font-family:var(--mono);font-size:.5rem;color:#fff;
+  text-shadow:0 1px 6px rgba(0,0,0,.9)}
+.acadrow{display:flex;gap:7px}
+.acadrow i{flex:1;height:34px;border-radius:6px;background:rgba(169,214,229,.14)}
+.acadline{height:6px;border-radius:3px;background:rgba(169,214,229,.13)}
+.acadline.s{width:62%}
+@media(prefers-reduced-motion:reduce){.flow,.ecolbl,.devplay{animation:none}}
+@media(max-width:860px){
+  .eco{flex-direction:column;gap:6px}
+  .ecolink{width:150px;transform:rotate(90deg);margin:-14px 0}
+  .acad{width:min(320px,84vw)}
 }
-@media(max-width:640px){.eco{width:100%}}
 .appnote{max-width:30em;text-align:center;color:var(--mut);font-size:.92rem}
 @media(max-width:640px){.phone{width:min(280px,78vw)}}
 [data-rv]{will-change:transform,opacity}
@@ -665,49 +701,41 @@ footer a:hover{color:var(--gold)}
     </div>
 
     <div class="appdemo" data-rv>
-      <svg class="eco" viewBox="0 0 900 290" fill="none" aria-hidden="true">
-        <g class="eco-phone">
-          <rect x="78" y="55" width="132" height="182" rx="24" stroke="rgba(169,214,229,.4)" stroke-width="1.6"
-                fill="rgba(169,214,229,.06)"/>
-          <rect x="92" y="70" width="104" height="152" rx="15" fill="rgba(1,42,74,.85)"/>
-          <g class="pump" stroke="#A9D6E5" stroke-width="1.7" fill="none" stroke-linecap="round">
-            <path d="M104 168 h80"/>
-            <rect x="140" y="120" width="42" height="30" rx="5"/>
-            <path d="M146 120 v-8 M164 120 v-8"/>
-            <circle cx="120" cy="135" r="17"/>
-            <circle class="imp" cx="120" cy="135" r="7"/>
-            <path d="M137 135 h3"/>
-            <path d="M120 118 v-13 h16"/>
-            <path d="M103 135 h-9 v14"/>
-            <path d="M112 168 v-8 M170 168 v-18"/>
+      <div class="eco">
+        <div class="dev" aria-hidden="true">
+          <span class="devnotch"></span>
+          <div class="devscr">
+            <div class="devq"><i></i><span data-i="eco_q">Como opero a bomba?</span></div>
+            <div class="devvid">
+              <video class="pumpvid" muted loop playsinline preload="none" poster="img/pump-poster.jpg">
+                <source src="img/pump-loop.mp4" type="video/mp4">
+              </video>
+              <span class="devplay">▶</span>
+            </div>
+            <div class="devcap" data-i="eco_cap">Bomba · arranque seguro · 2 min</div>
+          </div>
+        </div>
+
+        <svg class="ecolink" viewBox="0 0 240 210" fill="none" aria-hidden="true">
+          <path class="flow up"   d="M6 74 C 80 40, 160 40, 234 66" stroke="#A9D6E5" stroke-width="1.8"/>
+          <path class="flow down" d="M234 144 C 160 172, 80 172, 6 138" stroke="#61A5C2" stroke-width="1.8"/>
+          <g font-family="IBM Plex Mono" font-size="11" fill="#A9D6E5" text-anchor="middle">
+            <text class="ecolbl" x="120" y="30"  data-i="eco_up">pergunta</text>
+            <text class="ecolbl" x="120" y="196" data-i="eco_dn">módulo</text>
           </g>
-          <circle class="eco-pulse" cx="144" cy="190" r="17" fill="rgba(169,214,229,.92)"/>
-          <path d="M139 183 l12 7 -12 7 z" fill="#01243f"/>
-          <text class="ecocap" x="144" y="93" font-family="IBM Plex Mono" font-size="9"
-                fill="#A9D6E5" opacity=".8" text-anchor="middle" data-i="eco_cap">bomba · arranque</text>
-        </g>
-        <g class="eco-acad">
-          <rect x="648" y="60" width="192" height="170" rx="16" stroke="rgba(169,214,229,.4)" stroke-width="1.6"
-                fill="rgba(169,214,229,.06)"/>
-          <rect x="668" y="82" width="152" height="40" rx="7" fill="rgba(169,214,229,.18)"/>
-          <g stroke="#A9D6E5" stroke-width="1.4" fill="none" opacity=".85">
-            <circle cx="690" cy="102" r="8"/><rect x="702" y="95" width="16" height="14" rx="3"/>
-            <path d="M682 112 h40"/>
-          </g>
-          <rect x="728" y="96" width="76" height="5" rx="2.5" fill="rgba(169,214,229,.4)"/>
-          <rect x="728" y="106" width="52" height="5" rx="2.5" fill="rgba(169,214,229,.24)"/>
-          <rect x="668" y="132" width="70" height="34" rx="6" fill="rgba(169,214,229,.14)"/>
-          <rect x="750" y="132" width="70" height="34" rx="6" fill="rgba(169,214,229,.14)"/>
-          <rect x="668" y="178" width="152" height="8" rx="4" fill="rgba(169,214,229,.12)"/>
-          <rect x="668" y="196" width="104" height="8" rx="4" fill="rgba(169,214,229,.12)"/>
-        </g>
-        <path class="flow up"   d="M214 120 C 350 74, 520 74, 644 100" stroke="#A9D6E5" stroke-width="1.8"/>
-        <path class="flow down" d="M644 192 C 520 218, 350 218, 214 176" stroke="#61A5C2" stroke-width="1.8"/>
-        <g font-family="IBM Plex Mono" font-size="12" fill="#A9D6E5" opacity=".72" text-anchor="middle">
-          <text class="ecolbl" x="429" y="66"  data-i="eco_up">grava · pergunta</text>
-          <text class="ecolbl" x="429" y="244" data-i="eco_dn">vídeo · módulo</text>
-        </g>
-      </svg>
+        </svg>
+
+        <div class="acad" aria-hidden="true">
+          <div class="acadtop"><span class="acadmark"></span><span class="acadname">Academy</span></div>
+          <div class="acadfeat">
+            <img src="img/pump-thumb.jpg" alt="" loading="lazy" decoding="async">
+            <span class="acadplay">▶</span>
+            <span class="acadlbl" data-i="eco_mod">Bomba · arranque seguro</span>
+          </div>
+          <div class="acadrow"><i></i><i></i><i></i></div>
+          <div class="acadline"></div><div class="acadline s"></div>
+        </div>
+      </div>
       <p class="appnote" data-i="pb_note">A app e a academia partilham a mesma base de conhecimento.
         O que a equipa grava hoje é o módulo de amanhã.</p>
     </div>
@@ -1010,7 +1038,7 @@ h_c1:"Book a 15-minute call", h_c2:"Explore the platform",
 h_s1:'<b>2 live academies</b> — <a href="https://academy.edenrise.com/" target="_blank" rel="noopener">EdenRise</a> &amp; <a href="https://meridante-dev.github.io/belong-academy/" target="_blank" rel="noopener">Belong</a>',
 h_s2:"PT + EN", h_s3:'GDPR · data in the <b>EU</b>', h_s4:'live in <b>&lt; 1 day</b>',
 pb_eb:"Companion app",
-pb_h2:"Scattered knowledge<br><em>trains no one.</em>", eco_cap:"pump · start-up", eco_up:"record · ask", eco_dn:"video · module", pb_note:"The app and the academy share one knowledge base. What your team records today is tomorrow's module.",
+pb_h2:"Scattered knowledge<br><em>trains no one.</em>", eco_q:"How do I operate the pump?", eco_cap:"Pump · safe start-up · 2 min", eco_mod:"Pump · safe start-up", eco_up:"question", eco_dn:"module", pb_note:"The app and the academy share one knowledge base. What your team records today is tomorrow's module.",
 pb_p:"One question. One video from your own academy. Back to work.",
 ex_eb:"Inside",
 ex_h2:"Press play.<br><em>That's the whole learning curve.</em>",
@@ -1638,6 +1666,17 @@ const CAL_ORIGIN = 'https://cal.com';
   }
 
 
+
+  /* the companion-app loop plays only while visible */
+  (function(){
+    const v=document.querySelector('.pumpvid'); if(!v) return;
+    if(RM){ v.removeAttribute('loop'); return; }
+    const io=new IntersectionObserver(es=>{
+      if(es[0].isIntersecting){ v.play().catch(()=>{}); } else { v.pause(); }
+    },{rootMargin:'200px'});
+    io.observe(v);
+    document.addEventListener('visibilitychange',()=>{ document.hidden?v.pause():null; });
+  })();
 
   /* touch devices: the product frame arrives dimensionally via scroll (no hover exists) */
   if(tilt && !matchMedia('(pointer:fine)').matches){
