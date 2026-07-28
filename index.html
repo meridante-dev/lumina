@@ -26,9 +26,11 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23012A4A'/%3E%3Cpath d='M13 17 L31 8 V41 L13 50 Z' fill='none' stroke='%23A9D6E5' stroke-width='2.8'/%3E%3Cpath d='M27 23 L45 14 V47 L27 56 Z' fill='none' stroke='%2361A5C2' stroke-width='2.8'/%3E%3C/svg%3E">
 <link rel="canonical" href="https://meridante-dev.github.io/lumina/">
 <link rel="preload" as="image" href="img/eden-home.jpg" fetchpriority="high">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Academy Platforms",
 "url":"https://meridante-dev.github.io/lumina/",
@@ -885,7 +887,7 @@ footer a:hover{color:var(--gold)}
   <div class="wrap" style="position:relative;z-index:2">
     <span class="eyebrow" data-rv style="justify-content:center;width:100%" data-i="ct_eb">Comece pela estratégia</span>
     <h2 data-rv data-i="ct_h2">A sua organização já contém o conhecimento.<br><em>Nós construímos a academia à volta dele.</em></h2>
-    <p data-rv data-i="ct_p">30 minutos: o ambiente do formando, o pacote de evidência, o verificador ao vivo. Sem slides.</p>
+    <p data-rv data-i="ct_p">Uma chamada de estratégia: o ambiente do formando, o pacote de evidência, o verificador ao vivo. Sem slides.</p>
     <div data-rv style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
       <a class="btn btn-gold" href="mailto:[SUPPORT-EMAIL]?subject=Sess%C3%A3o%20de%20estrat%C3%A9gia%20Academy%20Platforms" data-book data-i="ct_c1">Marcar sessão de estratégia</a>
       <a class="btn btn-ghost" href="https://academy.edenrise.com/" target="_blank" rel="noopener" data-i="ct_c2">Explorar a plataforma</a>
@@ -931,10 +933,11 @@ footer a:hover{color:var(--gold)}
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js" async onload="window.__threeGo&&window.__threeGo()"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script>
+window.addEventListener("DOMContentLoaded",function(){
 const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ============ I18N — PT inline (source) · EN dictionary ============ */
@@ -1023,7 +1026,7 @@ fq4_q:"How long until our academy is live?", fq4_a:"Under a day for a new brande
 fq5_q:"Why isn't pricing per user?", fq5_a:"Because mandatory training priced per user creates the wrong incentive. A flat fee per instance aligns us with the goal: <b>everyone trained, everything documented</b>.",
 ct_eb:"Start with strategy",
 ct_h2:"Your organisation already contains the knowledge.<br><em>We build the academy around it.</em>",
-ct_p:"30 minutes: the learner environment, the evidence pack, the verifier live. No slides.",
+ct_p:"A strategy call: the learner environment, the evidence pack, the verifier live. No slides.",
 ct_c1:"Book a strategy session", cal_h:"Pick a time", skip:"Skip to content", ct_c2:"Explore the platform",
 ft_tag:"Your expertise. Structured, delivered and scaled.",
 ft_desc:"Corporate Academy Design &amp; Learning Technology",
@@ -1277,7 +1280,7 @@ function initHero3D(){
   window.__hero3D={P:RM?1:0, Q:0, active:true};
   if(window.__makeHeroPin) window.__makeHeroPin();
   // the helix assembles the moment the page opens — the site is alive before any scroll
-  if(!RM && window.gsap) gsap.to(window.__hero3D,{P:1,duration:2.6,ease:'power2.inOut',delay:.35});
+  if(!RM && window.gsap) gsap.to(window.__hero3D,{P:1,duration:1.7,ease:'power2.inOut',delay:.15});
   const ease=x=>x<0?0:x>1?1:x*x*(3-2*x);
   const clock=new THREE.Clock();
   function step(){
@@ -1353,7 +1356,7 @@ function initHero3D(){
    (the part after cal.com/ — username/event-slug).
    While it is empty the CTAs keep their current mailto/anchor behaviour,
    so nothing on the page is ever broken or fake. */
-const CAL_LINK = '';
+const CAL_LINK = 'meridante-studios-brxjh0/15min';
 const CAL_ORIGIN = 'https://cal.com';
 
 (function initCal(){
@@ -1437,7 +1440,7 @@ const CAL_ORIGIN = 'https://cal.com';
   });
 })();
 
-  const failsafe=setTimeout(unveil,3500);
+  const failsafe=setTimeout(unveil,2600);
   function unveil(){ html.classList.remove('cine');
     const e=document.getElementById('entry'); if(e) e.style.display='none'; }
   // prepare line-draw for all .draw paths
@@ -1594,14 +1597,14 @@ const CAL_ORIGIN = 'https://cal.com';
   if(entry && emk && seenEntry){ clearTimeout(failsafe); unveil(); }
   else if(entry && emk){
     gsap.set(['#entry .ew','#entry .et'],{opacity:0,y:14});
-    tl.to('#entry .emk path',{strokeDashoffset:0,duration:.5,stagger:.12,ease:'power2.inOut'})
+    tl.to('#entry .emk path',{strokeDashoffset:0,duration:.38,stagger:.08,ease:'power2.inOut'})
       .to('#entry .ew',{opacity:1,y:0,duration:.35},'-=.3')
       .to('#entry .et',{opacity:1,y:0,duration:.3},'-=.2')
-      .fromTo('#eprog',{scaleX:0},{scaleX:1,duration:.55,ease:'power1.inOut'},'<-.2')
+      .fromTo('#eprog',{scaleX:0},{scaleX:1,duration:.4,ease:'power1.inOut'},'<-.15')
       .add(()=>{ // FLIP: send the monogram to its place in the nav
         const t=navSvg.getBoundingClientRect(), s=emk.getBoundingClientRect();
         gsap.to(emk,{x:t.left+t.width/2-(s.left+s.width/2), y:t.top+t.height/2-(s.top+s.height/2),
-          scale:t.width/s.width, duration:.5, ease:'power3.inOut'});
+          scale:t.width/s.width, duration:.4, ease:'power3.inOut'});
         gsap.to(['#entry .ew','#entry .et','#entry .eline'],{opacity:0,y:-10,duration:.35});
       },'+=.15')
       .to(entry,{backgroundColor:'rgba(1,42,74,0)',duration:.4,ease:'power2.inOut'},'+=.05')
@@ -1645,6 +1648,8 @@ const CAL_ORIGIN = 'https://cal.com';
     lastY=y; }
   window.addEventListener('scroll',()=>navState(window.scrollY),{passive:true});
 })();
+
+});
 </script>
 </body>
 </html>
