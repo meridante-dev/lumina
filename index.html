@@ -89,6 +89,7 @@ img{max-width:100%;display:block}
 /* light context (default) */
 .btn-gold{position:relative;background:var(--sky2);border-color:var(--sky2);color:var(--deep)}
 .btn-gold::after{background:var(--deep);color:var(--sky2)}
+.hero .btn-gold::after,.final .btn-gold::after,.mbar .btn-gold::after{content:'\25B6';font-size:.72em;padding-left:.12em}
 .btn-gold:hover{background:var(--ivory);border-color:var(--ivory);color:var(--deep)}
 .btn-gold:hover::after{background:var(--deep);color:var(--ivory)}
 .btn-ghost{border-color:var(--line);color:var(--ivory);background:transparent}
@@ -194,11 +195,19 @@ header.hs .navlinks{background:rgba(169,214,229,.06);border-color:var(--line-sof
 @keyframes scue{0%,100%{transform:scaleY(.4);transform-origin:top;opacity:.4}50%{transform:scaleY(1);opacity:1}}
 @media(prefers-reduced-motion:reduce){.scue i{animation:none}}
 /* partner banner */
-.partners{background:var(--deep);padding:0 0 44px;border-top:0}
-.partners .pinner{flex-direction:column;gap:18px;justify-content:center}
-.partners .plabel{color:rgba(169,214,229,.45);width:100%;text-align:center}
-.partners .plogo{color:rgba(169,214,229,.72);opacity:.6}
-.partners .plogo:hover{opacity:1;color:var(--ivory)}
+.partners{background:var(--deep);padding:0 var(--pad) clamp(46px,6vw,78px);border-top:0}
+.partners .pinner{flex-direction:column;gap:26px;justify-content:center;max-width:1180px;margin:0 auto;
+  background:linear-gradient(180deg, rgba(169,214,229,.10), rgba(169,214,229,.04));
+  border:1px solid rgba(169,214,229,.20);border-radius:var(--r);
+  padding:clamp(30px,3.6vw,48px) clamp(24px,3vw,54px);
+  box-shadow:0 30px 80px -50px rgba(1,42,74,.9), inset 0 1px 0 rgba(169,214,229,.14)}
+.partners .plabel{color:var(--sky2);width:100%;text-align:center;font-size:.64rem;letter-spacing:.3em}
+.partners .plogos{gap:clamp(34px,6vw,86px);justify-content:center;width:100%}
+.partners .plogo{color:var(--ivory);opacity:.92;filter:none}
+.partners .plogo svg{width:34px;height:34px}
+.partners .plogo .pn{font-size:1.42rem}
+.partners .plogo:hover{opacity:1;color:var(--sky2);transform:translateY(-2px)}
+.partners .plogo{transition:opacity .35s,color .35s,transform .35s var(--ease)}
 .pinner{display:flex;align-items:center;gap:clamp(22px,4vw,60px);flex-wrap:wrap}
 .plabel{font-size:.6rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--dim);white-space:nowrap}
 .plogos{display:flex;gap:clamp(26px,5vw,70px);align-items:center;flex-wrap:wrap}
@@ -212,7 +221,7 @@ header.hs .navlinks{background:rgba(169,214,229,.06);border-color:var(--line-sof
 @media(max-width:640px){.pinner{justify-content:center}.plabel{width:100%;text-align:center}}
 /* infinite marquee — the academy's uses, always in motion */
 .marq{overflow:hidden;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);
-  padding:20px 0;background:var(--deep2);position:relative}
+  padding:20px 0;background:rgba(169,214,229,.04);position:relative}
 .marq .track{display:flex;gap:0;width:max-content;animation:marq 46s linear infinite}
 .marq:hover .track{animation-play-state:paused}
 .marq .mi{font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,2vw,1.55rem);color:var(--sky);
@@ -232,7 +241,9 @@ header.hs .navlinks{background:rgba(169,214,229,.06);border-color:var(--line-sof
 .rail{display:flex;gap:clamp(16px,2vw,26px);overflow-x:auto;scroll-snap-type:x mandatory;
   padding:10px 4px 22px;scrollbar-width:none;-ms-overflow-style:none}
 .rail::-webkit-scrollbar{display:none}
-.rcard{flex:0 0 clamp(300px,44vw,620px);scroll-snap-align:start;transition:transform .3s var(--ease)}
+.rcard{flex:0 0 clamp(300px,44vw,620px);scroll-snap-align:start;
+  transition:transform .4s var(--ease),box-shadow .4s;will-change:transform}
+.rcard:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 34px 64px -34px rgba(1,42,74,.95)}
 .rcard:hover{transform:translateY(-6px)}
 .rail-fade{position:absolute;top:0;bottom:22px;width:70px;z-index:3;pointer-events:none}
 .rail-fade.l{left:0;background:linear-gradient(90deg,var(--cloud),transparent)}
@@ -272,8 +283,8 @@ header.hs .navlinks{background:rgba(169,214,229,.06);border-color:var(--line-sof
 .shead h2{font-size:clamp(2.2rem,4.4vw,3.7rem);margin:.42em 0 .45em;text-wrap:balance}
 .shead h2 em{font-style:italic;color:var(--blue)}
 .shead p{color:var(--mut);max-width:42em;margin-inline:auto}
-.band{background:var(--deep2)}
-.band-deep{background:var(--deep3)}
+.band{background:radial-gradient(ellipse 90% 70% at 50% 0%, rgba(70,143,175,.11), transparent 68%)}
+.band-deep{background:radial-gradient(ellipse 90% 70% at 50% 100%, rgba(97,165,194,.10), transparent 68%)}
 .band-deep h2,.band-deep h3{color:var(--ivory)}
 .band-deep .shead p,.band-deep p{color:rgba(169,214,229,.78)}
 .band-deep .eyebrow{color:var(--gold)}
@@ -294,9 +305,22 @@ header.hs .navlinks{background:rgba(169,214,229,.06);border-color:var(--line-sof
 .step h3{font-family:var(--sans);font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ivory);margin-bottom:.5em}
 .step p{font-size:.82rem;color:var(--mut);line-height:1.6}
 /* use cases */
-.uses{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,24px)}
-.use{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px 24px;font-weight:600;font-size:.88rem;color:var(--ivory);
-  display:flex;align-items:center;gap:14px}
+.uses{display:flex;gap:clamp(12px,1.4vw,18px);overflow-x:auto;scroll-snap-type:x mandatory;
+  padding:4px 0 22px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.uses::-webkit-scrollbar{display:none}
+.use{flex:0 0 clamp(210px,20vw,272px);scroll-snap-align:start;aspect-ratio:16/10;
+  background:linear-gradient(155deg, rgba(70,143,175,.30), rgba(1,42,74,.85));
+  border:1px solid var(--line);border-radius:8px;padding:18px 20px;font-weight:600;font-size:.95rem;color:var(--ivory);
+  display:flex;flex-direction:column;justify-content:flex-end;gap:8px;position:relative;overflow:hidden;
+  cursor:default;will-change:transform;
+  transition:transform .35s var(--ease),box-shadow .35s,border-color .35s,background .35s}
+.use::after{content:'';position:absolute;inset:0;border-radius:8px;pointer-events:none;
+  background:radial-gradient(ellipse 90% 70% at 50% 120%, rgba(169,214,229,.22), transparent 62%);
+  opacity:0;transition:opacity .35s}
+.use:hover{transform:translateY(-6px) scale(1.045);border-color:rgba(169,214,229,.42);
+  box-shadow:0 26px 50px -26px rgba(1,42,74,.95)}
+.use:hover::after{opacity:1}
+.use i{align-self:flex-start}
 .use i{font-style:normal;font-family:var(--mono);font-size:.66rem;color:var(--gold)}
 /* models */
 .models{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.6vw,30px)}
@@ -447,7 +471,7 @@ footer a:hover{color:var(--gold)}
   .exp-grid{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr 1fr;gap:26px 14px}
   .steps::before{display:none}
-  .uses{grid-template-columns:1fr 1fr}
+  .use{flex:0 0 46vw}
   .models{grid-template-columns:1fr}
   .gov{grid-template-columns:1fr}
   .blk{grid-template-columns:36px 1fr}
@@ -461,7 +485,7 @@ footer a:hover{color:var(--gold)}
   .plogos{gap:26px}
 }
 @media(max-width:560px){
-  .uses{grid-template-columns:1fr} .steps{grid-template-columns:1fr}
+  .use{flex:0 0 64vw} .steps{grid-template-columns:1fr}
   #entry .emk{width:88px;height:88px}
   #entry .ew{font-size:1rem}
   .rcard{flex:0 0 86vw}
@@ -547,12 +571,6 @@ footer a:hover{color:var(--gold)}
       <div class="hero-cta" data-cine>
         <a class="btn btn-gold" href="#contacto" data-book data-i="h_c1">Marcar sessão de estratégia</a>
         <a class="btn btn-ghost" href="https://academy.edenrise.com/" target="_blank" rel="noopener" data-i="h_c2">Explorar a plataforma</a>
-      </div>
-      <div class="hero-strip" data-cine>
-        <span data-i="h_s1"><b>2 academias ao vivo</b> — <a href="https://academy.edenrise.com/" target="_blank" rel="noopener">EdenRise</a> &amp; <a href="https://meridante-dev.github.io/belong-academy/" target="_blank" rel="noopener">Belong</a></span>
-        <span data-i="h_s2">PT + EN</span>
-        <span data-i="h_s3">RGPD · dados na <b>UE</b></span>
-        <span data-i="h_s4">no ar em <b>&lt; 1 dia</b></span>
       </div>
     </div>
     <div class="pframe" data-cine>
