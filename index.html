@@ -13,11 +13,11 @@
   #entry{display:none!important}
   .hero canvas,#motes{display:none!important}
 </style></noscript>
-<title>Academy Platforms — Formação que a sua equipa vai realmente gostar</title>
-<meta name="description" content="Plataformas de aprendizagem com IA, com a sua marca: onboarding, formação contínua e as 40 horas obrigatórias — com evidência verificável sem o fornecedor. No ar em dias.">
+<title>Academy Platforms — Construa equipas melhores, uma lição de cada vez</title>
+<meta name="description" content="A Netflix da formação profissional. Formação que a sua equipa gosta de ver e as 40 horas obrigatórias por lei tratadas — numa só plataforma, em português e inglês.">
 <meta name="keywords" content="academia corporativa, formação literacia IA empresas, registo 40h formação, academia formação marca própria, plataforma de aprendizagem empresas, Art. 4 Regulamento IA">
-<meta property="og:title" content="Academy Platforms — Formação que a sua equipa vai realmente gostar">
-<meta property="og:description" content="Plataformas de aprendizagem com IA, com a sua marca — 40h obrigatórias documentadas, evidência verificável. No ar em dias.">
+<meta property="og:title" content="Academy Platforms — Construa equipas melhores, uma lição de cada vez">
+<meta property="og:description" content="Formação que a sua equipa gosta de ver — e as 40 horas obrigatórias por lei, tratadas. Numa só plataforma.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://meridante-dev.github.io/lumina/img/hero-3d.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -212,7 +212,7 @@ header.hs .navlinks{background:rgba(169,214,229,.06);border-color:var(--line-sof
 @media(max-width:640px){.pinner{justify-content:center}.plabel{width:100%;text-align:center}}
 /* infinite marquee — the academy's uses, always in motion */
 .marq{overflow:hidden;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);
-  padding:20px 0;background:var(--ivory);position:relative}
+  padding:20px 0;background:var(--deep2);position:relative}
 .marq .track{display:flex;gap:0;width:max-content;animation:marq 46s linear infinite}
 .marq:hover .track{animation-play-state:paused}
 .marq .mi{font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,2vw,1.55rem);color:var(--sky);
@@ -266,8 +266,7 @@ header.hs .navlinks{background:rgba(169,214,229,.06);border-color:var(--line-sof
 .bbar .url{font-family:var(--mono);font-size:.6rem;color:var(--mut);background:rgba(1,42,74,.7);
   border:1px solid var(--line-soft);border-radius:5px;padding:.3em 1em;flex:1;max-width:380px}
 /* sections */
-.sec{padding:clamp(64px,8vw,112px) 0;position:relative;
-  content-visibility:auto;contain-intrinsic-size:auto 900px}
+.sec{padding:clamp(64px,8vw,112px) 0;position:relative}
 .shead{max-width:820px;margin:0 auto clamp(44px,5.5vw,72px);text-align:center}
 .shead .eyebrow{justify-content:center}
 .shead h2{font-size:clamp(2.2rem,4.4vw,3.7rem);margin:.42em 0 .45em;text-wrap:balance}
@@ -288,8 +287,8 @@ header.hs .navlinks{background:rgba(169,214,229,.06);border-color:var(--line-sof
 .steps{display:grid;grid-template-columns:repeat(6,1fr);gap:0;position:relative;margin-top:clamp(30px,4vw,50px)}
 .steps::before{content:"";position:absolute;top:21px;left:4%;right:4%;height:1px;background:var(--line)}
 .step{padding:0 14px;position:relative}
-.step .n{width:42px;height:42px;border-radius:50%;background:var(--ivory);border:1px solid var(--line);
-  display:grid;place-items:center;font-family:var(--mono);font-size:.72rem;color:var(--blue);position:relative;z-index:2;margin-bottom:16px;
+.step .n{width:42px;height:42px;border-radius:50%;background:var(--surface2);border:1px solid var(--line);
+  display:grid;place-items:center;font-family:var(--mono);font-size:.72rem;color:var(--sky);position:relative;z-index:2;margin-bottom:16px;
   transition:border-color .4s,color .4s,background .4s}
 .step.on .n{background:var(--sky2);border-color:var(--sky2);color:var(--deep)}
 .step h3{font-family:var(--sans);font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ivory);margin-bottom:.5em}
@@ -512,7 +511,7 @@ footer a:hover{color:var(--gold)}
     <div class="langsw" role="group" aria-label="Language">
       <button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button>
     </div>
-    <a class="btn btn-gold navcta" href="#contacto" data-book data-i="ncta">Sessão de estratégia</a>
+    <a class="btn btn-gold navcta" href="#contacto" data-book data-i="ncta">Marcar chamada</a>
     <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="mmenu">
       <span></span><span></span>
     </button>
@@ -534,7 +533,7 @@ footer a:hover{color:var(--gold)}
 
 <!-- sticky mobile action bar -->
 <div class="mbar" id="mbar" aria-hidden="true">
-  <a class="btn btn-gold" href="#contacto" data-book data-i="h_c1">Marcar sessão de estratégia</a>
+  <a class="btn btn-gold" href="#contacto" data-book data-i="h_c1">Marcar chamada de 15 minutos</a>
 </div>
 
 <!-- ================= HERO ================= -->
@@ -542,9 +541,9 @@ footer a:hover{color:var(--gold)}
   <div class="hero-inner">
     <div>
       <span class="eyebrow" data-cine data-i="h_eb">A Netflix da formação profissional</span>
-      <h1 data-cine data-i="h_h1">Formação que a sua equipa<br><em>vai realmente gostar.</em></h1>
-      <p class="lead" data-cine data-i="h_lead">E cumpra as 40 horas de formação obrigatórias por lei em Portugal —
-        tudo numa só plataforma.</p>
+      <h1 data-cine data-i="h_h1">Construa equipas melhores.<br><em>Uma lição de cada vez.</em></h1>
+      <p class="lead" data-cine data-i="h_lead">Formação que a sua equipa gosta de ver — e as 40 horas obrigatórias por lei,
+        tratadas. Tudo numa só plataforma.</p>
       <div class="hero-cta" data-cine>
         <a class="btn btn-gold" href="#contacto" data-book data-i="h_c1">Marcar sessão de estratégia</a>
         <a class="btn btn-ghost" href="https://academy.edenrise.com/" target="_blank" rel="noopener" data-i="h_c2">Explorar a plataforma</a>
@@ -598,8 +597,8 @@ footer a:hover{color:var(--gold)}
   <div class="wrap">
     <div class="shead" data-rv>
       <span class="eyebrow" data-i="uc_eb">Casos de uso</span>
-      <h2 data-i="uc_h2">Uma academia, <em>muitos usos</em></h2>
-      <p data-i="uc_p">Do onboarding às 40 horas obrigatórias — a mesma academia serve a empresa inteira.</p>
+      <h2 data-i="uc_h2">Uma plataforma.<br><em>Todo o tipo de formação.</em></h2>
+      <p data-i="uc_p">Do primeiro dia às 40 horas obrigatórias — um só sítio para tudo o que a equipa precisa de aprender.</p>
     </div>
     <div class="uses" data-rv>
       <div class="use"><i>01</i><span data-i="uc1">Onboarding de colaboradores</span></div>
@@ -653,10 +652,10 @@ footer a:hover{color:var(--gold)}
 <section class="sec band" id="plataforma">
   <div class="wrap">
     <div class="shead" data-rv>
-      <span class="eyebrow" data-i="ex_eb">A plataforma</span>
-      <h2 data-i="ex_h2">Real, ao vivo — <em>não um mockup.</em></h2>
-      <p data-i="ex_p">Ecrãs das academias em produção: percursos adaptativos por IA, verificações no vídeo,
-      repetição espaçada, tutor de IA identificado como IA. Bilingue, offline, mobile-first.</p>
+      <span class="eyebrow" data-i="ex_eb">Por dentro</span>
+      <h2 data-i="ex_h2">Carregue em play.<br><em>É essa a curva de aprendizagem.</em></h2>
+      <p data-i="ex_p">Episódios curtos, para ver no telemóvel entre turnos. Perguntas rápidas para fixar o que interessa.
+      Um tutor que responde às 23h. Em português e inglês.</p>
     </div>
     <div class="rail-wrap" data-rv>
       <div class="rail-fade l"></div><div class="rail-fade r"></div>
@@ -729,16 +728,16 @@ footer a:hover{color:var(--gold)}
 <section class="sec" id="servico">
   <div class="wrap">
     <div class="shead" data-rv>
-      <span class="eyebrow" data-i="sv_eb">O sistema de serviço completo</span>
-      <h2 data-i="sv_h2">Não damos acesso a software.<br>Construímos <em>infraestrutura.</em></h2>
+      <span class="eyebrow" data-i="sv_eb">Como funciona</span>
+      <h2 data-i="sv_h2">Abrir. Carregar em play.<br><em>Está cumprido.</em></h2>
     </div>
     <div class="steps" data-rv>
-      <div class="step"><span class="n">01</span><h3 data-i="sv1_h">Estratégia</h3><p data-i="sv1_p">Mapeamos o conhecimento crítico e o que a academia deve mudar no desempenho.</p></div>
-      <div class="step"><span class="n">02</span><h3 data-i="sv2_h">Design</h3><p data-i="sv2_p">Arquitetura de percursos, standards e certificação — desenhada para a sua operação.</p></div>
-      <div class="step"><span class="n">03</span><h3 data-i="sv3_h">Produção</h3><p data-i="sv3_p">Conteúdo estruturado a partir do vosso conhecimento, com apoio de IA e revisão humana.</p></div>
-      <div class="step"><span class="n">04</span><h3 data-i="sv4_h">Tecnologia</h3><p data-i="sv4_p">A plataforma com a sua marca e domínio, dados na UE, sem dependências pesadas.</p></div>
-      <div class="step"><span class="n">05</span><h3 data-i="sv5_h">Lançamento</h3><p data-i="sv5_p">Onboarding das equipas, primeiros percursos atribuídos, adoção acompanhada.</p></div>
-      <div class="step"><span class="n">06</span><h3 data-i="sv6_h">Evolução</h3><p data-i="sv6_p">Novos programas, dados de conclusão e melhoria contínua da academia.</p></div>
+      <div class="step"><span class="n">01</span><h3 data-i="sv1_h">Abrir</h3><p data-i="sv1_p">A sua equipa entra na academia com a marca da empresa.</p></div>
+      <div class="step"><span class="n">02</span><h3 data-i="sv2_h">Escolher</h3><p data-i="sv2_p">Uma série de formação: acolhimento, segurança, liderança.</p></div>
+      <div class="step"><span class="n">03</span><h3 data-i="sv3_h">Play</h3><p data-i="sv3_p">Episódios curtos. No telemóvel ou no computador.</p></div>
+      <div class="step"><span class="n">04</span><h3 data-i="sv4_h">Aprender</h3><p data-i="sv4_p">Perguntas rápidas pelo meio para o que interessa ficar.</p></div>
+      <div class="step"><span class="n">05</span><h3 data-i="sv5_h">Acompanhar</h3><p data-i="sv5_p">Vê quem fez o quê, ao vivo, sem pedir nada a ninguém.</p></div>
+      <div class="step"><span class="n">06</span><h3 data-i="sv6_h">Certificar</h3><p data-i="sv6_p">Certificados emitidos sozinhos. As 40 horas ficam registadas.</p></div>
     </div>
   </div>
 </section>
@@ -757,15 +756,15 @@ footer a:hover{color:var(--gold)}
 <section class="sec" id="modelos">
   <div class="wrap">
     <div class="shead" data-rv>
-      <span class="eyebrow" data-i="md_eb">Modelos de academia</span>
-      <h2 data-i="md_h2">Modelos de implementação,<br>não <em>cartões de preços.</em></h2>
-      <p data-i="md_p">Preço fixo por instância. Utilizadores ilimitados. O cliente traz a sua chave de IA.</p>
+      <span class="eyebrow" data-i="md_eb">Planos</span>
+      <h2 data-i="md_h2">Preço simples.<br><em>Todos incluídos.</em></h2>
+      <p data-i="md_p">Um valor fixo por mês, por empresa. Colaboradores ilimitados — formar toda a gente não devia custar mais.</p>
     </div>
     <div class="models">
       <div class="model" data-rv>
         <figure class="mimg"><img src="img/eden-home.jpg" alt="" loading="lazy"></figure>
         <div class="mt">Foundation</div>
-        <h3 data-i="m1_h">Infraestrutura</h3>
+        <h3 data-i="m1_h">Pronta a usar</h3>
         <p class="md" data-i="m1_d">A academia com a sua marca, pronta a operar.</p>
         <ul>
           <li data-i="m1_l1"><b>Plataforma completa</b> com a sua marca e domínio</li>
@@ -780,7 +779,7 @@ footer a:hover{color:var(--gold)}
       <div class="model sig" data-rv>
         <figure class="mimg"><img src="img/eden-rails.jpg" alt="" loading="lazy"></figure>
         <div class="mt">Signature</div>
-        <h3 data-i="m2_h">Academia + Conteúdo</h3>
+        <h3 data-i="m2_h">Nós criamos os cursos</h3>
         <p class="md" data-i="m2_d">A infraestrutura, mais a biblioteca inicial produzida convosco.</p>
         <ul>
           <li data-i="m2_l1">Tudo o que está em <b>Foundation</b></li>
@@ -795,7 +794,7 @@ footer a:hover{color:var(--gold)}
       <div class="model" data-rv>
         <figure class="mimg"><img src="img/belong-home.jpg" alt="" loading="lazy"></figure>
         <div class="mt">Enterprise</div>
-        <h3 data-i="m3_h">Academia gerida</h3>
+        <h3 data-i="m3_h">Nós tratamos de tudo</h3>
         <p class="md" data-i="m3_d">Produção completa, conteúdo contínuo e gestão estratégica.</p>
         <ul>
           <li data-i="m3_l1">Tudo o que está em <b>Signature</b></li>
@@ -817,9 +816,8 @@ footer a:hover{color:var(--gold)}
     <div class="shead" data-rv>
       <span class="eyebrow" data-i="pv_eb">A prova</span>
       <h2 data-i="pv_h2">Formação que um auditor pode <em>verificar sozinho</em></h2>
-      <p data-i="pv_p">Cada evento de aprendizagem entra num registo encadeado com SHA-256 e ancorado em Bitcoin —
-      comprovadamente não-antedatado, verificável <b>sem depender do nosso software</b>.
-      <b>O papel aponta para a prova.</b></p>
+      <p data-i="pv_p">Cada aula, teste e certificado fica registado para sempre. Se um inspetor perguntar, a prova está lá —
+      <b>comprovadamente não-antedatada</b> e verificável por ele próprio, <b>sem depender do nosso software</b>.</p>
     </div>
     <div style="text-align:center" data-rv><span class="demo-tag" data-i="pv_tag">Demonstração ao vivo · eventos de exemplo · matemática real</span></div>
     <div class="chain" id="chain" data-rv aria-label="Demonstração de verificação da cadeia de evidência"></div>
@@ -861,7 +859,7 @@ footer a:hover{color:var(--gold)}
   <div class="wrap">
     <div class="shead" data-rv>
       <span class="eyebrow" data-i="fq_eb">Perguntas honestas</span>
-      <h2 data-i="fq_h2">Os limites, <em>por escrito</em></h2>
+      <h2 data-i="fq_h2">Respostas diretas.<br><em>Sem letras pequenas.</em></h2>
     </div>
     <div class="faq" data-rv>
       <details><summary><span data-i="fq1_q">Isto é aconselhamento jurídico?</span> <span class="pm">+</span></summary>
@@ -889,10 +887,10 @@ footer a:hover{color:var(--gold)}
 <section class="final" id="contacto">
   <div class="wrap" style="position:relative;z-index:2">
     <span class="eyebrow" data-rv style="justify-content:center;width:100%" data-i="ct_eb">Comece pela estratégia</span>
-    <h2 data-rv data-i="ct_h2">A sua organização já contém o conhecimento.<br><em>Nós construímos a academia à volta dele.</em></h2>
-    <p data-rv data-i="ct_p">Uma chamada de estratégia: o ambiente do formando, o pacote de evidência, o verificador ao vivo. Sem slides.</p>
+    <h2 data-rv data-i="ct_h2">A sua equipa está pronta para aprender.<br><em>Vamos carregar em play.</em></h2>
+    <p data-rv data-i="ct_p">Uma chamada de 15 minutos. Mostramos a plataforma, os certificados e como as 40 horas ficam tratadas.</p>
     <div data-rv style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-      <a class="btn btn-gold" href="mailto:[SUPPORT-EMAIL]?subject=Sess%C3%A3o%20de%20estrat%C3%A9gia%20Academy%20Platforms" data-book data-i="ct_c1">Marcar sessão de estratégia</a>
+      <a class="btn btn-gold" href="mailto:[SUPPORT-EMAIL]?subject=Sess%C3%A3o%20de%20estrat%C3%A9gia%20Academy%20Platforms" data-book data-i="ct_c1">Marcar chamada de 15 minutos</a>
       <a class="btn btn-ghost" href="https://academy.edenrise.com/" target="_blank" rel="noopener" data-i="ct_c2">Explorar a plataforma</a>
     </div>
     <div class="calwrap" id="calwrap" data-rv hidden>
@@ -948,20 +946,20 @@ const EN = {
 b2:"Corporate academies",
 e_t:"Corporate academy infrastructure",
 pt_l:"Partners &amp; live academies", pt_p:"partner", scue:"scroll",
-n1:"Platform", n2:"Service", n3:"Models", n4:"The proof", n5:"Governance", ncta:"Strategy session",
+n1:"Platform", n2:"Service", n3:"Models", n4:"The proof", n5:"Governance", ncta:"Book a call",
 h_eb:"The Netflix for Workplace Training",
-h_h1:"Give your team training<br><em>they'll actually enjoy.</em>",
-h_lead:"And meet Portugal's 40-hour legal training requirement — all in one simple platform.",
-h_c1:"Book a strategy session", h_c2:"Explore the platform",
+h_h1:"Build better teams.<br><em>One lesson at a time.</em>",
+h_lead:"Training your team actually enjoys — and Portugal's 40 legal hours, handled. All in one platform.",
+h_c1:"Book a 15-minute call", h_c2:"Explore the platform",
 h_s1:'<b>2 live academies</b> — <a href="https://academy.edenrise.com/" target="_blank" rel="noopener">EdenRise</a> &amp; <a href="https://meridante-dev.github.io/belong-academy/" target="_blank" rel="noopener">Belong</a>',
 h_s2:"PT + EN", h_s3:'GDPR · data in the <b>EU</b>', h_s4:'live in <b>&lt; 1 day</b>',
 pb_eb:"The problem",
 pb_h2:"Scattered knowledge<br><em>trains no one.</em>",
 pb_p:"Processes in folders, standards in three people's heads, onboarding left to chance. When someone leaves, the knowledge leaves with them. We turn that into an academy under your brand — one environment to onboard, train and develop your team.",
 pb_t1:"scattered knowledge", pb_t2:"learning architecture", pb_t3:"performance",
-ex_eb:"The platform",
-ex_h2:"Real, live — <em>not a mockup.</em>",
-ex_p:"Screens from the academies in production: AI-adaptive paths, in-video checks, spaced retrieval, an AI tutor labelled as AI. Bilingual, offline, mobile-first.",
+ex_eb:"Inside",
+ex_h2:"Press play.<br><em>That's the whole learning curve.</em>",
+ex_p:"Short episodes your team can watch on a phone between shifts. Quick checks so it sticks. A tutor that answers at 11pm. In Portuguese and English.",
 ex_c0:"<b>Programmes and assignments</b> — editorial rails, deadlines, paths generated per person.",
 ex_c1:"<b>The learner environment</b> — featured programmes, personal path, progress.",
 ex_c2:"<b>Real white-label</b> — the same engine, the second client's brand, live in under a day.",
@@ -973,34 +971,34 @@ cr_hash:'evidence <b>sha-256 a56ce2f2…7d1b</b> · verifiable at verify — <sp
 in_e:"Insights · example data", in_r1:"Path completion", in_r2:"Recorded hours (40h)", in_r3:"Verified competencies",
 in_n:"illustrative interface — the real numbers live in your instance",
 st1:"live academies", st2:"the 40h register · Labour Code Art. 131", st3:"GDPR erasure with receipt", st4:"tracking cookies on this site",
-sv_eb:"The complete service system",
-sv_h2:"We don't hand over software access.<br>We build <em>infrastructure.</em>",
-sv1_h:"Strategise", sv1_p:"We map the critical knowledge and what the academy must change in performance.",
-sv2_h:"Design", sv2_p:"Architecture of paths, standards and certification — designed for your operation.",
-sv3_h:"Produce", sv3_p:"Structured content from your knowledge, AI-supported with human review.",
-sv4_h:"Build", sv4_p:"The platform in your brand and domain, EU data, no heavy dependencies.",
-sv5_h:"Launch", sv5_p:"Team onboarding, first assigned paths, adoption accompanied.",
-sv6_h:"Improve", sv6_p:"New programmes, completion data and continuous development of the academy.",
-uc_eb:"Use cases", uc_h2:"One academy, <em>many uses</em>",
+sv_eb:"How it works",
+sv_h2:"Open it. Press play.<br><em>You're compliant.</em>",
+sv1_h:"Open", sv1_p:"Your team signs in to your own branded academy.",
+sv2_h:"Choose", sv2_p:"A training series: onboarding, safety, leadership.",
+sv3_h:"Press play", sv3_p:"Short episodes. On a phone or a desktop.",
+sv4_h:"Learn", sv4_p:"Quick checks along the way so it actually sticks.",
+sv5_h:"Track", sv5_p:"See who has done what, live, without chasing anyone.",
+sv6_h:"Certify", sv6_p:"Certificates issue themselves. The 40 hours are on record.",
+uc_eb:"Use cases", uc_h2:"One platform.<br><em>Every kind of training.</em>",
 uc1:"Employee onboarding", uc2:"Compliance and standards", uc3:"Leadership development", uc4:"Operational training",
-uc5:"Customer education", uc6:"Partner academies", uc7:"Franchise training", uc8:"Multilingual workforces", uc_p:"From onboarding to the mandatory 40 hours — one academy serves the whole company.",
-md_eb:"Academy models",
-md_h2:"Deployment models,<br>not <em>pricing cards.</em>",
-md_p:"Flat fee per instance. Unlimited users. You bring your own AI key.",
-m1_h:"Infrastructure", m1_d:"Your branded academy, ready to operate.",
+uc5:"Customer education", uc6:"Partner academies", uc7:"Franchise training", uc8:"Multilingual workforces", uc_p:"From day one to the mandatory 40 hours — one place for everything your team needs to learn.",
+md_eb:"Plans",
+md_h2:"Simple pricing.<br><em>Everyone included.</em>",
+md_p:"One flat monthly fee per company. Unlimited employees — training everyone shouldn't cost more.",
+m1_h:"Ready to run", m1_d:"Your branded academy, ready to operate.",
 m1_l1:"<b>Complete platform</b> in your brand and domain",
 m1_l2:"PT/EU compliance: the Labour Code Art. 131 40 hours, Relatório Único, AI Act Art. 4",
 m1_l3:"Full evidence ladder + public verifier",
 m1_l4:"Unlimited users · EU data",
 m1_n:"+ €1,500 setup · annual = 2 months free · <b>Founding programme: 3 slots at €199/month, locked 12 months</b> — in return, a named case study and a monthly feedback call.",
 m1_c:"Talk to us",
-m2_h:"Academy + Content", m2_d:"The infrastructure, plus the initial library produced with you.",
+m2_h:"We make the courses", m2_d:"The infrastructure, plus the initial library produced with you.",
 m2_l1:"Everything in <b>Foundation</b>",
 m2_l2:"Initial programme library produced from your knowledge",
 m2_l3:"Brand avatar and voice for video content",
 m2_l4:"Onboarding paths designed with us",
 m2_x:"On request", m2_n:"Scope defined in the strategy session.", m2_c:"Book a session",
-m3_h:"Managed academy", m3_d:"Complete production, ongoing content and strategic management.",
+m3_h:"We run it for you", m3_d:"Complete production, ongoing content and strategic management.",
 m3_l1:"Everything in <b>Signature</b>",
 m3_l2:"Ongoing programme production and standards updates",
 m3_l3:"Executive completion and competency reporting",
@@ -1008,7 +1006,7 @@ m3_l4:"Strategic academy management as a service",
 m3_x:"On request", m3_n:"For organisations with a continuous training operation.", m3_c:"Talk to us",
 pv_eb:"The proof",
 pv_h2:"Training an auditor can <em>verify alone</em>",
-pv_p:"Every learning event enters a record hash-chained with SHA-256 and anchored into Bitcoin — provably not back-dated, verifiable <b>without depending on our software</b>. <b>The paper points at the proof.</b>",
+pv_p:"Every lesson, quiz and certificate is recorded permanently. If an inspector asks, the proof is there — <b>provably not back-dated</b> and checkable by them, <b>without depending on our software</b>.",
 pv_tag:"Live demonstration · example events · real mathematics",
 pv_v1:"✓ Chain intact",
 pv_note:'These hashes were <b>computed just now, in your browser</b> — exactly how an auditor would recompute them. In the real product, the evidence export and the <a href="https://academy.edenrise.com/verify.html" target="_blank" rel="noopener">public verifier</a> do this over the true record.',
@@ -1021,16 +1019,16 @@ gv3_h:"Zero tracking", gv3_p:"No tracking cookies, no third-party analytics, no 
 gv4_h:"Learning records", gv4_p:"The 40h continuous-training register, individual hour log, Relatório Único annex, annual certificate with verification code.",
 gv5_h:"Art. 4 documented", gv5_p:"AI-literacy course (PT/EN) + an exportable evidence pack readable without the vendor's software.",
 gv6_h:"Administrative control", gv6_p:"Teams, assignments, deadlines, progress and certifications — with one-click evidence export.",
-fq_eb:"Honest questions", fq_h2:"The limits, <em>in writing</em>",
+fq_eb:"Honest questions", fq_h2:"Straight answers.<br><em>No small print.</em>",
 fq1_q:"Is this legal advice?", fq1_a:"No. The platform produces <b>supporting documentation</b> for the employer's obligations (Art. 4, the 40h of continuous training). It is not legal advice and does not replace each organisation's own legal assessment.",
 fq2_q:"Are the certificates professional certification?", fq2_a:"They are <b>internal training certificates</b>, in your company's brand — not professional certification by a certified entity (DGERT) and not a formal qualification. Their value lies elsewhere: they cite their own cryptographic evidence and the URL where anyone can verify it.",
 fq3_q:"What does “provably not back-dated” mean?", fq3_a:"Chain heads are anchored into the Bitcoin blockchain via OpenTimestamps. That mathematically proves a record <b>existed at a certain date</b>. We don't say “we prove it's true”; we say exactly what the mathematics proves: the record's <b>integrity</b> and <b>non-back-dating</b>.",
 fq4_q:"How long until our academy is live?", fq4_a:"Under a day for a new branded instance — it already happened with the second live academy. Custom content adds whatever time the content demands.",
 fq5_q:"Why isn't pricing per user?", fq5_a:"Because mandatory training priced per user creates the wrong incentive. A flat fee per instance aligns us with the goal: <b>everyone trained, everything documented</b>.",
 ct_eb:"Start with strategy",
-ct_h2:"Your organisation already contains the knowledge.<br><em>We build the academy around it.</em>",
-ct_p:"A strategy call: the learner environment, the evidence pack, the verifier live. No slides.",
-ct_c1:"Book a strategy session", cal_h:"Pick a time", skip:"Skip to content", ct_c2:"Explore the platform",
+ct_h2:"Your team is ready to learn.<br><em>Let's press play.</em>",
+ct_p:"A 15-minute call. We show you the platform, the certificates, and how the 40 hours get handled.",
+ct_c1:"Book a 15-minute call", cal_h:"Pick a time", skip:"Skip to content", ct_c2:"Explore the platform",
 ft_tag:"Your expertise. Structured, delivered and scaled.",
 ft_desc:"Corporate Academy Design &amp; Learning Technology",
 ft_pr:"No tracking cookies, no third-party analytics — that's why there's no banner.",
