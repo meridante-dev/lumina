@@ -431,6 +431,15 @@ footer a:hover{color:var(--gold)}
 .fn::before,.fn::after{content:'';position:absolute;top:50%;width:clamp(24px,3vw,54px);height:1px;
   background:rgba(169,214,229,.3)}
 .fn::before{right:calc(100% + 12px)} .fn::after{left:calc(100% + 12px)}
+.mstrip{display:flex;justify-content:center;gap:clamp(10px,1.4vw,22px);flex-wrap:wrap;
+  padding-top:14px;margin-top:auto;border-top:1px solid rgba(169,214,229,.14)}
+.mstrip span{display:flex;align-items:center;gap:6px;font-size:.76rem;color:var(--sky)}
+.mstrip i{width:18px;height:18px;color:var(--sky2);display:grid;place-items:center}
+.mstrip i svg{width:16px;height:16px}
+.mstrip em{font-style:normal}
+.ffoot{margin-top:0!important;border-top:0!important;padding-top:10px!important;
+  background:rgba(169,214,229,.07);border:1px solid rgba(169,214,229,.18)!important;
+  border-radius:12px;padding:12px 14px!important}
 .ffoot{display:flex;align-items:center;gap:11px;padding-top:14px;margin-top:auto;
   border-top:1px solid rgba(169,214,229,.16);font-size:.84rem;color:var(--ivory);line-height:1.35;text-align:left}
 .ffoot i{width:26px;height:26px;color:var(--sky2);flex:none;display:grid;place-items:center}
@@ -728,6 +737,7 @@ footer a:hover{color:var(--gold)}
               <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></i><b data-i="f1_b3">Concluir</b><span data-i="f1_p3">Rever e guardar</span></li>
             </ul>
           </div>
+          <div class="mstrip"><span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="13" height="12" rx="2"/><path d="M15 11l6-3v8l-6-3z"/></svg></i><em data-i="ms1a">Gravar.</em></span><span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></svg></i><em data-i="ms1b">Explicar.</em></span><span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></i><em data-i="ms1c">Guardar.</em></span></div>
           <p class="ffoot"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="13" height="12" rx="2"/><path d="M15 11l6-3v8l-6-3z"/></svg></i><span data-i="ff1">Uma gravação hoje.<br>Formação que fica para sempre.</span></p>
 </article>
 
@@ -757,6 +767,7 @@ footer a:hover{color:var(--gold)}
               <li><span class="ck">✓</span><span data-i="f2_c4">Sempre disponível</span></li>
             </ul>
           </div>
+          <div class="mstrip"><span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V8m0 0l-3 3m3-3l3 3"/><path d="M4 15a4 4 0 0 1 2-7.5 5.5 5.5 0 0 1 10.6-1A4.5 4.5 0 0 1 20 15"/></svg></i><em data-i="ms2a">Carregar.</em></span><span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></i><em data-i="ms2b">Organizar.</em></span><span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3"/></svg></i><em data-i="ms2c">Encontrável.</em></span></div>
           <p class="ffoot"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V8m0 0l-3 3m3-3l3 3"/><path d="M4 15a4 4 0 0 1 2-7.5 5.5 5.5 0 0 1 10.6-1A4.5 4.5 0 0 1 20 15"/></svg></i><span data-i="ff2">Um carregamento.<br>Conhecimento organizado e pesquisável.</span></p>
 </article>
 
@@ -789,6 +800,7 @@ footer a:hover{color:var(--gold)}
               <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M2 20a7 7 0 0 1 14 0"/><circle cx="18" cy="9" r="2.5"/><path d="M16.5 20a6 6 0 0 1 5.5-6"/></svg></i><b data-i="f3_b4">Conhecimento partilhado</b></li>
             </ul>
           </div>
+          <div class="mstrip"><span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3"/></svg></i><em data-i="ms3a">Procurar.</em></span><span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg></i><em data-i="ms3b">Encontrar.</em></span><span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M2 20a7 7 0 0 1 14 0"/><circle cx="18" cy="9" r="2.5"/><path d="M16.5 20a6 6 0 0 1 5.5-6"/></svg></i><em data-i="ms3c">Aplicar.</em></span></div>
           <p class="ffoot"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3"/></svg></i><span data-i="ff3">Uma pesquisa.<br>A resposta exata em minutos.</span></p>
 </article>
       </div>
@@ -1105,7 +1117,7 @@ f3_h:"Find the answer", f3_s:"Instant recall. Back to work.",
 f3_x0:"All", f3_x1:"Videos", f3_x2:"Documents", f3_top:"Top result", f3_oth:"Other results",
 f3_r1:"Winterise the pump", f3_r2:"Pump troubleshooting",
 f3_b1:"Instant answers", f3_b2:"Save time", f3_b3:"Do it right", f3_b4:"Share knowledge",
-ff1:"One recording today.<br>Training that lasts forever.", ff2:"One upload.<br>Knowledge, organised and searchable.", ff3:"One search.<br>The exact answer in minutes.", eco_q:"How do I operate the pump?", eco_cap:"Pump · safe start-up · 2 min", eco_mod:"Pump · safe start-up", eco_up:"question", eco_dn:"module", pb_note:"Every video your team records becomes searchable training for the next person.",
+ms1a:"Record.", ms1b:"Explain.", ms1c:"Save.", ms2a:"Upload.", ms2b:"Organise.", ms2c:"Ready to find.", ms3a:"Search.", ms3b:"Find.", ms3c:"Apply.", ff1:"One recording today.<br>Training that lasts forever.", ff2:"One upload.<br>Knowledge, organised and searchable.", ff3:"One search.<br>The exact answer in minutes.", eco_q:"How do I operate the pump?", eco_cap:"Pump · safe start-up · 2 min", eco_mod:"Pump · safe start-up", eco_up:"question", eco_dn:"module", pb_note:"Every video your team records becomes searchable training for the next person.",
 pb_p:"Ask a question. Watch the exact answer. Get back to work in minutes.",
 ex_eb:"Inside",
 ex_h2:"Press play.<br><em>That's the whole learning curve.</em>",
